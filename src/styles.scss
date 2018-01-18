@@ -1,0 +1,167 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700|Roboto:400,700';
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'assets/scss/main.scss';
+
+* { box-sizing: border-box; }
+
+body { 
+	background-color: #f4f4f4; 
+	color: #353535;
+	font-family: "Lato", sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: "Roboto", sans-serif; margin-top: 0;}
+
+a { color: $blue; }
+
+.container { padding: 0 20px; width: 100%; }
+
+#wrapper, .navbar .container { 
+	border-radius: 0; 
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0; 
+	width: 100%;
+}
+
+#main-body { min-height: 496px; padding: 20px; }
+
+#user-options { 
+	float: right; 
+	padding-top: 7px; 
+
+	a { padding: 0; }
+
+	.initials {
+		background: #dbe5f6;
+		border-radius: 50%;
+	    color: #001f5b;
+	    display: inline-block;
+	    font-size: 13px;
+	    font-weight: bold;
+	    height: 35px;
+	    line-height: 35px;
+	    text-align: center;
+	    width: 35px;
+	}
+
+	i { 
+		color: #FFF; 
+		display: inline-block;
+		font-size: 10px;
+		margin-left: 2px; 
+	}
+}
+
+footer {
+
+	a { 
+		color: #FFF; 
+		text-decoration: none; 
+		&:hover { text-decoration: underline; }
+	}
+
+	.footer-img {
+		background: url('assets/img/footer_img.jpg') center;
+		border-top: 2px solid #d2d2d2;
+		height: 50px;
+	}
+
+	.footer-copy { 
+		background-color: #393e47; 
+		color: #FFF;
+		font-size: 11.5px;
+		padding: 15px 20px; 
+	}
+
+	#footer-links { 
+		text-align: center; 
+
+		ul { margin: 0; padding: 0; }
+
+		li { 
+			display: inline-block; 
+			line-height: normal;
+			padding: 0 10px; 
+
+			&:nth-child(2) { border-left: 1px solid #fff; border-right: 1px solid #fff; }
+		}
+	}
+
+	.footer-copy .row div:last-child { 
+		text-align: right; 
+
+		a { padding-left: 5px; }	
+	}
+}
+
+
+.head-title { margin-bottom: 30px; text-transform: uppercase; }
+
+.full-width { max-width: 100%; width: 100%; }
+img.full-width { height: auto; }
+
+.label_title { 
+	color: #001f5b; 
+	display: block;
+	margin-bottom: 6px; 
+}
+
+.add-new-field { 
+	display: block;
+	font-size: 13px;
+	margin: -10px 0 8px;  
+}
+
+.separator-line { border-right: 1px solid #e5e5e5; }
+
+#client-info-page { display: table; width: 100%; }
+
+#user-profile, #insured, #policy { display: table-cell; vertical-align: top; }
+
+#user-profile { padding-right: 20px; width: 15%; }
+#insured { padding: 0 20px; width: 50%; }
+#policy { padding-left: 20px; width: 35%; }
+
+#user-profile button { margin-top: 10px; }
+
+#policy .info-block {
+	border-bottom: 1px solid #e5e5e5; 
+	margin-bottom: 8px;
+	padding: 0 0 10px;
+
+	&:last-child { border-bottom: 0; }
+
+	.row { font-size: 14px; }
+}
+
+.form-btn-bottom { 
+	margin-top: 10px;
+
+	.mat-raised-button { 
+		margin-right: 10px; 
+		&:last-child { margin-right: 0; }
+	}
+}
+
+
+//buttons
+button.mat-accent { background-color: $accent !important; }
+button.mat-red { color: $white; background-color: $red !important; }
+
+form .mat-form-field { margin-bottom: 8px; }
+form .mat-radio-group { display: block; margin-bottom: 20px; }
+
+.mat-form-field-underline { background-color: rgba(229, 229, 229, 1); }
+
+.mat-radio-group > label { margin-right: 10px; }
+.mat-radio-group > label:last-child { margin-right: 0; }
+.mat-radio-outer-circle { border-color: #ccc; }
+.mat-radio-button.mat-accent .mat-radio-inner-circle { background-color: $accent !important; }
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle { border-color: $accent; }
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color:rgba(230, 100, 0, .26);
+}

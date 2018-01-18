@@ -1,0 +1,65 @@
+<header class="head-title">
+    <h3>Insured Client</h3>
+</header>
+
+<form action="">
+	<mat-form-field class="full-width">
+	    <input matInput placeholder="Nombre">
+	</mat-form-field>
+
+	<mat-radio-group>
+	  	<label><mat-radio-button value="gender01" class="md-accent radioBtn">Hombre</mat-radio-button></label>
+	  	<label><mat-radio-button value="gender02" class="radioBtn">Mujer</mat-radio-button></label>
+	</mat-radio-group>
+
+	<mat-form-field class="full-width">
+	    <input matInput placeholder="Cédula">
+	</mat-form-field>
+
+	<div class="row">
+		<div class="col-md-8">
+			<mat-form-field class="full-width">
+	    		<input matInput placeholder="Teléfono 1">
+			</mat-form-field>
+		</div>
+		<div class="col-md-4">
+			<mat-form-field class="full-width">
+				<mat-select placeholder="Tipo">
+					<mat-option value="1">Casa</mat-option>
+					<mat-option value="2">Celular</mat-option>
+					<mat-option value="3">Trabajo</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<mat-form-field class="full-width">
+	    		<input matInput placeholder="Teléfono 2">
+			</mat-form-field>
+		</div>
+		<div class="col-md-4">
+			<mat-form-field class="full-width">
+				<mat-select placeholder="Tipo">
+					<mat-option value="1">Casa</mat-option>
+					<mat-option value="2">Celular</mat-option>
+					<mat-option value="3">Trabajo</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+	</div>
+	<a href="" class="add-new-field">[+] Agregar otro teléfono</a>
+
+	<mat-form-field class="full-width">
+	    <input matInput placeholder="Correo">
+	</mat-form-field>
+
+	<mat-form-field class="full-width">
+    	<textarea matInput placeholder="Dirección"></textarea>
+  	</mat-form-field>
+	
+	<div class="form-btn-bottom">
+		<button mat-raised-button color="primary">Guardar</button>
+		<button mat-raised-button color="red">Cancelar</button>
+	</div>
+</form>

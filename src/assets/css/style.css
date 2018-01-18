@@ -1,0 +1,113 @@
+
+* { box-sizing: border-box; }
+
+body { 
+	background-color: #f4f4f4; 
+	color: #353535;
+	font-family: "Lato", sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: "Roboto", sans-serif; margin-top: 0;}
+
+.container { padding: 0 20px; width: 100%; }
+
+#wrapper, .navbar .container { 
+	border-radius: 0; 
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0; 
+	width: 100%;
+}
+
+#main-body { min-height: 496px; padding: 20px; }
+
+#user-options { float: right; padding-top: 7px; }
+
+	#user-options a { padding: 0; }
+
+	#user-options .initials {
+		background: #dbe5f6;
+		border-radius: 50%;
+	    color: #001f5b;
+	    display: inline-block;
+	    font-size: 13px;
+	    font-weight: bold;
+	    height: 35px;
+	    line-height: 35px;
+	    text-align: center;
+	    width: 35px;
+	}
+
+	#user-options i { 
+		color: #FFF; 
+		display: inline-block;
+		font-size: 10px;
+		margin-left: 2px; 
+	}
+
+footer a { color: #FFF; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+.footer-img {
+	background: url('../img/footer_img.jpg') center;
+	border-top: 2px solid #d2d2d2;
+	height: 50px;
+}
+
+.footer-copy { 
+	background-color: #393e47; 
+	color: #FFF;
+	font-size: 11.5px;
+	padding: 15px 20px; 
+}
+
+	#footer-links { text-align: center; }
+
+	#footer-links ul { margin: 0; padding: 0; }
+		
+		#footer-links li { 
+			display: inline-block; 
+			line-height: normal;
+			padding: 0 10px; 
+		}
+
+		#footer-links li:nth-child(2) { border-left: 1px solid #fff; border-right: 1px solid #fff; }
+
+	.footer-copy .row div:last-child { text-align: right; }
+		
+		.footer-copy .row div:last-child a { padding-left: 5px; }	
+
+.head-title { margin-bottom: 30px; text-transform: uppercase; }
+
+.full-width { max-width: 100%; width: 100%; }
+img.full-width { height: auto; }
+
+.label_title { 
+	color: #001f5b; 
+	display: block;
+	margin-bottom: 6px; 
+}
+
+.separator-line { border-right: 1px solid #e5e5e5; }
+
+#client-info-page { display: table; width: 100%; }
+
+#user-profile, #insured, #policy { display: table-cell; vertical-align: top; }
+
+#user-profile { padding-right: 20px; width: 15%; }
+#insured { padding: 0 20px; width: 50%; }
+#policy { padding-left: 20px; width: 35%; }
+
+#user-profile button { margin-top: 10px; }
+
+#policy .info-block {
+	border-bottom: 1px solid #e5e5e5; 
+	margin-bottom: 8px;
+	padding: 0 0 10px;
+}
+
+#policy .info-block:last-child { border-bottom: 0; }
+
+	#policy .info-block .row { font-size: 14px; }
