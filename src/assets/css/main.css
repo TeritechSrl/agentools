@@ -1,4 +1,3 @@
-@import "https://fonts.googleapis.com/css?family=Lato:400,700|Roboto:400,700";
 /*===================================================
 ====================== NAVBAR =======================
 ===================================================*/
@@ -54,89 +53,6 @@
 .navbar.sidebar [class*='ion'] { margin-right: 5px; }
 
 /*===================================================
-====================== BUTTONS ======================
-===================================================*/
-.primary-btn, .accent-btn, .default-btn, .green-btn, .blue-btn, .orange-btn, .red-btn, .violet-btn, .regal-blue-btn, .green-sea-btn, .social-btn-tt, .social-btn-fb, .social-btn-gg, .social-btn-ig, .social-btn-pt, .social-btn-yt, .flat-btn { border: 0; border-radius: .2em; color: #fff; cursor: pointer; display: inline-block; font-size: 16px !important; outline: 0; padding: 6px 14px; transition: 0.2s; -webkit-transition: 0.2s; -moz-transition: 0.2s; -ms-transition: 0.2s; -o-transition: 0.2s; text-decoration: none; }
-.primary-btn:hover, .accent-btn:hover, .default-btn:hover, .green-btn:hover, .blue-btn:hover, .orange-btn:hover, .red-btn:hover, .violet-btn:hover, .regal-blue-btn:hover, .green-sea-btn:hover, .social-btn-tt:hover, .social-btn-fb:hover, .social-btn-gg:hover, .social-btn-ig:hover, .social-btn-pt:hover, .social-btn-yt:hover, .flat-btn:hover { opacity: 0.9; text-decoration: none; }
-.primary-btn:active, .accent-btn:active, .default-btn:active, .green-btn:active, .blue-btn:active, .orange-btn:active, .red-btn:active, .violet-btn:active, .regal-blue-btn:active, .green-sea-btn:active, .social-btn-tt:active, .social-btn-fb:active, .social-btn-gg:active, .social-btn-ig:active, .social-btn-pt:active, .social-btn-yt:active, .flat-btn:active { opacity: 1; }
-
-.flat-btn { background-color: transparent; }
-.flat-btn.default { color: #353535; border: 1px solid rgba(53, 53, 53, 0.4); }
-.flat-btn.default:hover { background-color: rgba(204, 204, 204, 0.5); }
-.flat-btn.blue { color: #2980b9; border: 1px solid #2980b9; }
-.flat-btn.blue:hover { background-color: #2980b9; color: #fff; }
-.flat-btn.red { color: #f44336; border: 1px solid #f44336; }
-.flat-btn.red:hover { background-color: #f44336; color: #fff; }
-.flat-btn.orange { color: #FB8C00; border: 1px solid #FB8C00; }
-.flat-btn.orange:hover { background-color: #FB8C00; color: #fff; }
-.flat-btn.green { color: #43A047; border: 1px solid #43A047; }
-.flat-btn.green:hover { background-color: #43A047; color: #fff; }
-.flat-btn.violet { color: #8E24AA; border: 1px solid #8E24AA; }
-.flat-btn.violet:hover { background-color: #8E24AA; color: #fff; }
-.flat-btn.regal-blue { color: #274058; border: 1px solid #274058; }
-.flat-btn.regal-blue:hover { background-color: #274058; color: #fff; }
-.flat-btn.green-sea { color: #16a085; border: 1px solid #16a085; }
-.flat-btn.green-sea:hover { background-color: #16a085; color: #fff; }
-
-.rounded { border: none !important; border-radius: 3em; padding: 6px 26px; }
-.rounded.sm-btn { padding: 0px 14px; }
-.rounded.lg-btn { padding: 10px 34px; }
-
-.circle { border-radius: 50%; font-size: 22px !important; height: 45px; padding: 0; text-align: center; width: 45px; }
-.circle .sm-btn { font-size: 15px !important; height: 30px; width: 30px; }
-.circle .lg-btn { font-size: 26px !important; height: 60px; width: 60px; }
-
-.raised { transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none; border-width: 0 0 4px !important; position: relative; }
-.raised:active { border: 0; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) inset; -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) inset; -moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) inset; -ms-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) inset; -o-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) inset; border: 0; top: 4px; }
-
-.sm-btn { font-size: 13px !important; padding: 2px 8px; }
-.sm-btn i { font-size: 15px !important; }
-
-.lg-btn { font-size: 20px !important; padding: 14px 28px; }
-
-.group-buttons.sm-btn, .group-buttons.lg-btn { padding: 0; }
-.group-buttons.sm-btn button, .group-buttons.sm-btn a, .group-buttons.sm-btn input { font-size: 13px !important; padding: 2px 8px; }
-.group-buttons.lg-btn button, .group-buttons.lg-btn.lg-btn a, .group-buttons.lg-btn.lg-btn input { font-size: 20px !important; padding: 14px 28px; }
-.group-buttons button { border-radius: 0; border-right-width: 0; margin-right: -3px; }
-.group-buttons button:first-child { border-radius: .2em 0 0 .2em; }
-.group-buttons button:last-child { border-radius: 0 .2em .2em 0; border-right-width: 1px; }
-.group-buttons button.default-btn:hover { color: #2980b9; }
-
-.primary-btn { background-color: rgba(0, 51, 153, 0.92); border: 1px solid #003399; }
-
-.accent-btn { background-color: rgba(230, 100, 0, 0.92); border: 1px solid #e66400; }
-
-.default-btn { background-color: #fff; border: 1px solid #CCC; color: #353535; }
-
-.default-btn:hover { background-color: #FDFDFD; }
-
-.green-btn { background-color: rgba(67, 160, 71, 0.92); border: 1px solid #43A047; }
-
-.blue-btn { background-color: rgba(41, 128, 185, 0.92); border: 1px solid #2980b9; }
-
-.orange-btn { background-color: rgba(251, 140, 0, 0.92); border: 1px solid #FB8C00; }
-
-.red-btn { background-color: rgba(244, 67, 54, 0.92); border: 1px solid #f44336; }
-
-.violet-btn { background-color: rgba(142, 36, 170, 0.92); border: 1px solid #8E24AA; }
-
-.regal-blue-btn { background-color: rgba(39, 64, 88, 0.9); border: 1px solid #274058; }
-
-.green-sea-btn { background-color: rgba(22, 160, 133, 0.92); border: 1px solid #16a085; }
-
-.social-btn-tt { background-color: #55acee; }
-
-.social-btn-fb { background-color: #3b5998; }
-
-.social-btn-gg { background-color: #DD4B39; }
-
-.social-btn-ig { background-color: #a77658; }
-
-.social-btn-pt { background-color: #bd081c; }
-
-.social-btn-yt { background-color: #ed3935; }
-
-/*===================================================
 ==================== CONTAINERS =====================
 ===================================================*/
 .basic-cont { box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14); -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14); -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14); -ms-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14); -o-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14); background-color: #fff; border-top: 1px solid rgba(204, 204, 204, 0.5); border-radius: 3px; padding: 30px; }
@@ -178,5 +94,28 @@ img.pull-right { margin: 0 0 15px 15px; }
 .image-block { display: inline-block; position: relative; }
 .image-block img { display: block; margin: 0 !important; }
 .image-block .image-label { background-color: rgba(53, 53, 53, 0.7); bottom: 0; color: #fff; display: block; font-size: 14px; line-height: normal; padding: 5px 10px; position: absolute; width: 100%; }
+
+/*===================================================
+====================== TABLES =======================
+===================================================*/
+table.table { line-height: normal; width: 100%; }
+table.table th { font-size: 15px; padding: 8px 10px; }
+table.table td { font-size: 14px; padding: 6px 10px; }
+table.table thead { border-bottom: 2px solid #CCC; border-top: 2px solid #CCC; }
+table.table thead.nocenter th { text-align: left; }
+table.table tbody tr { border-bottom: 1px solid #CCC; }
+table.table.striped tbody tr:nth-child(2n) { background-color: #ECECEC; }
+table.table.bgheader { background-color: #fff; border: 1px solid #CCC; border-bottom: 0; border-collapse: separate; border-radius: 5px; overflow: hidden; }
+table.table.bgheader thead { background-color: #274058; border: 0; }
+table.table.bgheader thead th { color: #fff; }
+table.table.bgheader td { border-bottom: 1px solid #CCC; }
+table.table.fcolor { background-color: #274058; border-radius: 5px; color: #fff; overflow: hidden; }
+table.table.fcolor thead, table.table.fcolor tbody tr { border: 1px solid rgba(255, 255, 255, 0.1); }
+table.table.fcolor.fcolor.striped tbody tr:nth-child(2n) { background-color: #3A546D !important; }
+table.table.column thead { border: 0; }
+table.table.column th:after { border-bottom: 2px solid #2980b9; display: block; content: ""; margin: 10px auto 0; width: 100%; }
+table.table.column th:first-child { padding-left: 0; }
+table.table.column th:last-child { padding-right: 0; }
+table.table.column tbody tr { border: 0; }
 
 /*# sourceMappingURL=main.css.map */

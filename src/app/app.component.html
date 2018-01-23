@@ -1,0 +1,46 @@
+<header>        
+    <div class="navbar default">
+        <div class="container">
+            <div class="head-nav"><a href="#">AGENTOOLS</a></div>
+            <nav>
+                <ul>
+                    <li><a href="/" routerLink="dashboard" routerLinkActive="current">Dashboard<span class="bottom-line"></span></a></li>
+                    <li><a href="#">Pólizas<span class="bottom-line"></span></a></li>
+                    <li><a href="/" routerLink="client" routerLinkActive="current">Clientes<span class="bottom-line"></span></a></li>
+                    <li><a href="#">Aseguradoras<span class="bottom-line"></span></a></li>
+                    <li><a href="#">Reportes<span class="bottom-line"></span></a></li>
+                </ul>
+            </nav>
+            <div id="user-options">
+                <a href="#">
+                    <div class="initials">HM</div>
+                    <i class="ion-arrow-down-b"></i>
+                </a>
+            </div>
+        </div>
+    </div>      
+</header>
+
+<div class="container">
+    <div id="wrapper" class="basic-cont">
+        <div id="main-body" class="container">
+            <router-outlet></router-outlet>
+        </div>
+        <footer>
+            <div class="footer-img"></div>
+            <div class="footer-copy">
+                <div class="row">
+                    <div class="col-md-3">&copy; 2018. Todos los derechos reservados</div>
+                    <div id="footer-links" class="col-md-7">
+                        <ul>
+                            <li><a href="#">Condiciones de uso</a></li>
+                            <li><a href="#">Política de privacidad</a></li>
+                            <li><a href="#">Preguntas frecuentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">Desarrollado por: <a href="#">TeriTech</a></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

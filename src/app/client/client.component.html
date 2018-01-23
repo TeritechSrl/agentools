@@ -1,0 +1,32 @@
+<div class="animated fadeIn">
+	<mat-card id="searchBox">
+		<form action="">
+			<input type="text" class="searchInput" placeholder="Buscar...">
+			<button mat-icon-button color="primary"><i class="ion-android-search"></i></button>
+		</form>
+	</mat-card>
+
+	<table class="table">
+		<tr>
+			<th class="check"></th>
+			<th class="thumbnail"></th>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+		</tr>
+		<tr>
+			<th><section><mat-checkbox></mat-checkbox></section></th>
+			<td><img src="../assets/img/xample_pic.jpg" alt="" class="circle border"></td>
+			<td>01</td>
+			<td><a href="/" [routerLink]="['/client', 45]">Hairo</a></td>
+			<td>Mercedes Hernández</td>
+		</tr>
+		<tr>
+			<th><section><mat-checkbox></mat-checkbox></section></th>
+			<td><img src="../assets/img/xample_pic.jpg" alt="" class="circle border"></td>
+			<td>01</td>
+			<td><a href="/" [routerLink]="['/client', 45]">Hairo</a></td>
+			<td>Mercedes Hernández</td>
+		</tr>
+	</table>
+</div>
