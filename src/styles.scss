@@ -57,7 +57,7 @@ a { color: $blue; }
 }
 
 #searchBox { 
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	padding: 0;
 	position: relative;
 
@@ -85,14 +85,26 @@ a { color: $blue; }
 	}
 }
 
+.top-options {
+	margin-bottom: 15px;
+	text-align: right; 
+	&.icons { margin-bottom: 0; }
+
+	.mat-icon-button { font-size: 22px; }
+}
+
 .table {
 	width: 100%;
+
+	thead { border-top: 0 !important; }
 
 	th { text-align: left; }
 
 	.check { width: 3%; }
 
 	.thumbnail { width: 5%; }
+	
+	.id { width: 3%; }
 
 	img { 
 		border-color: #CCC;
@@ -195,8 +207,8 @@ img.full-width { height: auto; }
 
 
 //buttons
-button.mat-accent { background-color: $accent !important; }
-button.mat-red { color: $white; background-color: $red !important; }
+.mat-raised-button.mat-accent { background-color: $accent !important; }
+.mat-raised-button.mat-red { color: $white; background-color: $red !important; }
 
 form .mat-form-field { margin-bottom: 8px; }
 form .mat-radio-group { display: block; margin-bottom: 20px; }

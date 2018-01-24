@@ -16,10 +16,7 @@ export class ClientComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._clientService.getClients().subscribe(function(response){
-      this._clients = response;
-      console.log(this._clients);
-    });
+    this._clientService.getClients().subscribe(response => this._clients = response); 
   }
 
 }
