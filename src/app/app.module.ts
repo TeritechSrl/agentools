@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import {MatIconModule} from '@angular/material/icon';
 
@@ -42,6 +43,8 @@ const appRoutes: Routes = [
     ClientDetailComponent,
   ],
   imports: [
+    HttpModule,
+    JsonpModule,
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(

@@ -14,14 +14,7 @@
 			<th>Nombre</th>
 			<th>Apellido</th>
 		</tr>
-		<tr>
-			<th><section><mat-checkbox></mat-checkbox></section></th>
-			<td><img src="../assets/img/xample_pic.jpg" alt="" class="circle border"></td>
-			<td>01</td>
-			<td><a href="/" [routerLink]="['/client', 45]">Hairo</a></td>
-			<td>Mercedes Hernández</td>
-		</tr>
-		<tr>
+		<tr *ngFor="let client of _clients">
 			<th><section><mat-checkbox></mat-checkbox></section></th>
 			<td><img src="../assets/img/xample_pic.jpg" alt="" class="circle border"></td>
 			<td>01</td>
