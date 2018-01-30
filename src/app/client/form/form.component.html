@@ -15,12 +15,13 @@
 
 			</div>
 		</div>
-		<mat-radio-group>
+		<mat-radio-group name="genero" [(ngModel)]="_client.genero" #genero="ngModel"
+		required>
 			<label>
-				<mat-radio-button value="gender01" class="md-accent radioBtn">Hombre</mat-radio-button>
+				<mat-radio-button value="H" class="md-accent radioBtn">Hombre</mat-radio-button>
 			</label>
 			<label>
-				<mat-radio-button value="gender02" class="radioBtn">Mujer</mat-radio-button>
+				<mat-radio-button value="M" class="radioBtn">Mujer</mat-radio-button>
 			</label>
 		</mat-radio-group>
 
@@ -74,7 +75,7 @@
 		</mat-form-field>
 		<div class="form-btn-bottom">
 			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid">Guardar</button>
-			<button mat-raised-button color="red">Cancelar</button>
+			<a mat-raised-button color="red" [routerLink]="['/clients']">Cancelar</a>
 		</div>
 	</form>
 </div>

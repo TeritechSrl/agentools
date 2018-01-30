@@ -32,4 +32,9 @@ export class ClientService {
     .map((res:Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
+  createClient(client:Client):Observable<Client>{
+    return this.http.post(this.baseUrl+'Clientes/',client)
+    .map((res:Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }
