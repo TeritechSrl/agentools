@@ -8,7 +8,7 @@ import { Client } from '../../models/client.model';
 export class FormComponent {
 
   @Input('client')
-  private _client: Client;
+  _client: Client;
 
   @Output()
   clientSaved:EventEmitter<Client> = new EventEmitter<Client>();

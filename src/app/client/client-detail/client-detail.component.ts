@@ -10,7 +10,7 @@ import { Client } from '../../models/client.model';
 })
 export class ClientDetailComponent implements OnInit {
 
-  private _client: Client = new Client();
+  _client: Client = new Client();
 
   constructor(private route: ActivatedRoute,
     private router: Router,
