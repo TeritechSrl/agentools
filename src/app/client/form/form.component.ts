@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Client } from '../../models/client.model';
 
 @Component({
-  selector: 'app-form',
+  selector: 'client-form',
   templateUrl: './form.component.html'
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
-  constructor() { }
+  @Input('client')
+  private _client: Client;
 
-  ngOnInit() {
+  @Output()
+  clientSaved:EventEmitter<Client> = new EventEmitter<Client>();
+
+  saveClient(){
+    this.clientSaved.emit(this._client);
   }
 
 }

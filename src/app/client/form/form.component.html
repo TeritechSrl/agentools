@@ -3,18 +3,29 @@
 		<h3>Insured Client</h3>
 	</header>
 
-	<form action="">
+	<form action="" #clientForm="ngForm">
 		<mat-form-field class="full-width">
-			<input matInput placeholder="Nombre">
+			<input matInput placeholder="Nombre" name="nombreCompleto" [(ngModel)]="_client.nombreCompleto" #nombreCompleto="ngModel"
+			 required>
+			 <mat-error *ngIf="nombreCompleto.invalid && (nombreCompleto.dirty || nombreCompleto.touched)">El Nombre completo del cliente es requerido.</mat-error>
 		</mat-form-field>
+		<div *ngIf="nombreCompleto.invalid && (nombreCompleto.dirty || nombreCompleto.touched)" class="alert alert-danger">
 
+			<div *ngIf="nombreCompleto.errors.required">
+
+			</div>
+		</div>
 		<mat-radio-group>
-			<label><mat-radio-button value="gender01" class="md-accent radioBtn">Hombre</mat-radio-button></label>
-			<label><mat-radio-button value="gender02" class="radioBtn">Mujer</mat-radio-button></label>
+			<label>
+				<mat-radio-button value="gender01" class="md-accent radioBtn">Hombre</mat-radio-button>
+			</label>
+			<label>
+				<mat-radio-button value="gender02" class="radioBtn">Mujer</mat-radio-button>
+			</label>
 		</mat-radio-group>
 
 		<mat-form-field class="full-width">
-			<input matInput placeholder="Cédula">
+			<input matInput placeholder="Cédula" name="identificacion" [(ngModel)]="_client.identificacion" #identificacion="ngModel">
 		</mat-form-field>
 
 		<div class="row">
@@ -52,15 +63,17 @@
 		<a href="" class="add-new-field">[+] Agregar otro teléfono</a>
 
 		<mat-form-field class="full-width">
-			<input matInput placeholder="Correo">
+			<input matInput placeholder="Correo" [(ngModel)]="_client.correo" name="correo" #correo="ngModel">
 		</mat-form-field>
 
 		<mat-form-field class="full-width">
-			<textarea matInput placeholder="Dirección"></textarea>
+			<textarea matInput placeholder="Dirección" [(ngModel)]="_client.direccion" name="direccion" #direccion="ngModel"></textarea>
 		</mat-form-field>
-		
+		<mat-form-field class="full-width">
+			<textarea matInput placeholder="Notas" [(ngModel)]="_client.notas" name="notas" #notas="ngModel"></textarea>
+		</mat-form-field>
 		<div class="form-btn-bottom">
-			<button mat-raised-button color="primary">Guardar</button>
+			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid">Guardar</button>
 			<button mat-raised-button color="red">Cancelar</button>
 		</div>
 	</form>

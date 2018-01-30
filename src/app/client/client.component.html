@@ -38,7 +38,7 @@
 				<th><section><mat-checkbox></mat-checkbox></section></th>
 				<td><img src="../assets/img/xample_pic.jpg" alt="" class="circle border"></td>
 				<td>{{client.id}}</td>
-				<td><a href="/" [routerLink]="['/client', 45]">{{client.nombreCompleto}}</a></td>
+				<td><a href="/" [routerLink]="['/client', client.id]">{{client.nombreCompleto}}</a></td>
 				<td>{{client.correo}}</td>
 				<td></td>
 				<td>{{client.notas}}</td>

@@ -8,14 +8,28 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ClientService {
+
+  baseUrl:string = "https://teritechapi.azurewebsites.net/api/";
+
+  _clients:Client[] = [];
+
   constructor (
     private http: Http
   ) {}
 
-  getClients():Observable<Client[]> {
-    return this.http.get('https://teritechapi.azurewebsites.net/api/Clientes')
+  getClient(id:number):Observable<Client>{
+    return this.http.get(this.baseUrl+'Clientes/'+id)
     .map((res:Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));;
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
-
+  getClients():Observable<Client[]> {
+    return this.http.get(this.baseUrl+'Clientes')
+    .map((res:Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+  editClient(client:Client):Observable<Client>{
+    return this.http.put(this.baseUrl+'Clientes/'+client.id,client)
+    .map((res:Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }
