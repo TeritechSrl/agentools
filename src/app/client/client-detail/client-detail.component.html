@@ -1,14 +1,14 @@
 <div id="client-info-page" class="animated fadeIn">
-    <div id="user-profile" class="separator-line">
+    <div id="user-profile" class="left-col separator-line">
         <img src="../assets/img/xample_pic.jpg" alt="" class="border full-width">
         <button class="full-width" mat-raised-button color="accent"><i class="ion-android-upload"></i> Subir</button>
     </div>
 
-    <div id="insured" class="separator-line">
+    <div id="insured" class="middle-col separator-line">
         <client-form [client]="_client" (clientSaved)="clientSavedHandler($event)"></client-form>
     </div> 
 
-    <div id="policy">
+    <div id="policy" class="right-col">
         <header class="head-title">
             <h3>Pólizas Relacionadas</h3>            
         </header>
