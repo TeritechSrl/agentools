@@ -1,5 +1,10 @@
+import { ClienteContacto } from "./clientContact.model";
+
 export class Client{
 
+    public constructor(){
+        this.clientesContactos = [];
+    }
     id:number;
 
     nombreCompleto:string;
@@ -15,4 +20,6 @@ export class Client{
     correo:string;
 
     notas:string;
+
+    clientesContactos:ClienteContacto[];
 }

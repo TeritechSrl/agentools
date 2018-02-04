@@ -9,7 +9,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ClientService {
 
-  baseUrl:string = "https://teritechapi.azurewebsites.net/api/";
+  // baseUrl:string = "https://teritechapi.azurewebsites.net/api/";
+  baseUrl:string = "http://localhost:50776/api/";
 
   _clients:Client[] = [];
 
