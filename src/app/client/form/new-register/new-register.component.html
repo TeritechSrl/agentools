@@ -5,7 +5,7 @@
     </div>
 
     <div id="insured" class="middle-col">
-        <client-form [client]="_client"></client-form>
+        <client-form [client]="_client" [contactTypes]="_contactTypes" (clientSaved)="saveHandler($event)"></client-form>
     </div> 
 
     <div class="right-col"></div>
