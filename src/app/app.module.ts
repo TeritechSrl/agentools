@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './client/form/form.component';
 import { ClientComponent } from './client/client.component';
 import { ClientDetailComponent } from './client/client-detail/client-detail.component';
+import { NewRegisterComponent } from './client/form/new-register/new-register.component';
 
 import {
   MatButtonModule,
@@ -25,14 +26,17 @@ import {
   MatTableModule,
   MatCardModule,
   MatCheckboxModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatTooltipModule
 } from '@angular/material';
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'clients', component: ClientComponent },
-  { path: 'client/:id', component: ClientDetailComponent }
+  { path: 'client/:id', component: ClientDetailComponent },
+  { path: 'newClient', component: NewRegisterComponent }
 ];
 
 @NgModule({
@@ -42,6 +46,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     ClientComponent,
     ClientDetailComponent,
+    NewRegisterComponent,
   ],
   imports: [
     HttpModule,
@@ -63,7 +68,8 @@ const appRoutes: Routes = [
     MatTableModule,
     MatCardModule,
     MatCheckboxModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
