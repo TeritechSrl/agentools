@@ -13,6 +13,12 @@ import { ModelManager } from '../../generics/model.imanager';
   providers: [ClientService,ContactTypeService]
 })
 export class NewRegisterComponent extends ClientManager implements OnInit, ModelManager {
+  deleteHandler(event: any) {
+    throw new Error("Method not implemented.");
+  }
+  
+  _client: Client;
+  _contactTypes: ContactType[];
 
   saveHandler(event: any) {
     let router: Router = this.router;

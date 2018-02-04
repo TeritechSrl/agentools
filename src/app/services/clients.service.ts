@@ -38,4 +38,9 @@ export class ClientService {
     .map((res:Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
+  deleteClient(client:Client):Observable<Client>{
+    return this.http.delete(this.baseUrl+'Clientes/'+client.id)
+    .map((res:Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

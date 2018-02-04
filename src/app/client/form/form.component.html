@@ -56,8 +56,9 @@
 			<textarea matInput placeholder="Notas" [(ngModel)]="_client.notas" name="notas" #notas="ngModel"></textarea>
 		</mat-form-field>
 		<div class="form-btn-bottom">
-			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid">Guardar</button>
 			<a mat-raised-button color="red" [routerLink]="['/clients']">Cancelar</a>
+			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid">Guardar</button>
+			<button mat-raised-button (click)="deleteClient()" *ngIf="_client.id">Eliminar</button>
 		</div>
 	</form>
 </div>

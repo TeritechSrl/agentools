@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppComponent } from './app.component';
@@ -27,8 +27,10 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatPaginatorModule,
+  MatDialogModule,
   MatTooltipModule
 } from '@angular/material';
+import { ConfirmDialogComponent } from './generics/confirm-dialog/confirm-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     ClientComponent,
     ClientDetailComponent,
     NewRegisterComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     HttpModule,
@@ -69,9 +72,11 @@ const appRoutes: Routes = [
     MatCardModule,
     MatCheckboxModule,
     MatPaginatorModule,
+    MatDialogModule,
     MatTooltipModule
   ],
   providers: [],
+  entryComponents:[ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

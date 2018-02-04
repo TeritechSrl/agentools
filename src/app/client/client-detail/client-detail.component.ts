@@ -13,6 +13,12 @@ import { ModelManager } from '../generics/model.imanager';
   providers: [ClientService,ContactTypeService]
 })
 export class ClientDetailComponent extends ClientManager implements OnInit, ModelManager {
+  deleteHandler(event: Client) {
+    let router: Router = this.router;
+    this._clientService.deleteClient(event).subscribe(function (response) {
+      router.navigateByUrl('clients');
+    });
+  }
   _client: Client;
   _contactTypes: ContactType[];
   
@@ -31,7 +37,7 @@ export class ClientDetailComponent extends ClientManager implements OnInit, Mode
   
   ngOnInit() {
     let id: number = +this.route.snapshot.paramMap.get('id');
-    this._contactTypesService.getTypes().subscribe(response => {this._contactTypes = response; console.log(this._contactTypes)}); 
+    this._contactTypesService.getTypes().subscribe(response => this._contactTypes = response); 
 
     if (id) {
       this._clientService.getClient(id).subscribe(response => this._client = response);
