@@ -37,9 +37,10 @@
 			</div>
 			<div class="col-md-4">
 				<mat-form-field class="full-width" >
-					<mat-select placeholder="Tipo" name="tipoContacto" #tipoContacto="ngModel" [(ngModel)]="contacto.idTipoContacto">
+					<mat-select required placeholder="Tipo" name="tipoContacto" #tipoContacto="ngModel" [(ngModel)]="contacto.idTipoContacto">
 						<mat-option *ngFor="let type of _contactTypes" [value]="type.id">{{type.descripcion}}</mat-option>
 					</mat-select>
+					<mat-error *ngIf="tipoContacto.invalid && (tipoContacto.dirty || tipoContacto.touched)">Elija el tipo de teléfono.</mat-error>
 				</mat-form-field>
 			</div>
 		</div>

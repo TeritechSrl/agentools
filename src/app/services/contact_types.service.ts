@@ -9,8 +9,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ContactTypeService {
 
-  // baseUrl:string = "https://teritechapi.azurewebsites.net/api/";
-  baseUrl:string = "http://localhost:50776/api/";
+  baseUrl:string = "https://teritechapi.azurewebsites.net/api/";
+  // baseUrl:string = "http://localhost:50776/api/";
 
   constructor (
     private http: Http
