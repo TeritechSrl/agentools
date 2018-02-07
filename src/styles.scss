@@ -221,6 +221,17 @@ img.full-width { height: auto; }
 	}
 }
 
+.mat-form-field-label, .mat-focused .mat-form-field-label.mat-form-field-placeholder {
+	color: $primary !important;	
+	font-size: 16px !important;
+	font-weight: bold !important; 
+}
+
+.mat-form-field-label.mat-empty { 
+	color: rgba(0,0,0,.54) !important;
+	font-size: 15px !important;
+	font-weight: normal !important;
+}
 
 //buttons
 .mat-raised-button.mat-accent { background-color: $accent !important; }

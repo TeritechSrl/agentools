@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-new-register',
   templateUrl: './new-register.component.html',
 })
+
 export class NewRegisterComponent implements OnInit {
 
   constructor() { }

@@ -22,27 +22,32 @@
 		</div>
 	</div>
 
-	<table class="table" *ngIf="_clients">
+	<table class="table">
 		<thead>
 			<tr>
 				<th class="check"></th>
-				<th class="thumbnail"></th>
 				<th class="id">ID</th>
-				<th>Nombre</th>
-				<th>Correo</th>
-				<th>Teléfono</th>
-				<th>Comentario</th>
+				<th>Cliente</th>
+				<th>Aseguradora</th>
+				<th>Categoría</th>
+        		<th>Tipo</th>
+       			<th>Prima</th>
+       			<th>Saldo</th>
+        		<th>Vigencia</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let client of _clients">
-				<th><section><mat-checkbox></mat-checkbox></section></th>
-				<td><img src="../assets/img/xample_pic.jpg" alt="" class="circle border"></td>
-				<td>{{client.id}}</td>
-				<td><a href="/" [routerLink]="['/client', client.id]">{{client.nombreCompleto}}</a></td>
-				<td><i class="ion-android-mail"></i> {{client.correo}}</td>
-				<td><i class="ion-android-call"></i> </td>
-				<td>{{client.notas}}</td>
+			<tr>
+				
+				<td></td>
+        		<td>12345</td>
+				<td><a href="">Hairo Mercedes</a></td>
+				<td>Universal</td>
+				<td>Vehículo</td>
+				<td>Individual</td>
+				<td>12,000</td>
+				<td>4,000</td>
+				<td>02/02/18 - 02/02/19</td>
 			</tr>
 		</tbody>
 	</table>
