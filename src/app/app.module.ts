@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 import {
   MatButtonModule,
@@ -20,6 +20,7 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatPaginatorModule,
+  MatDialogModule,
   MatTooltipModule
 } from '@angular/material';
 
@@ -29,9 +30,14 @@ import { FormComponent } from './client/form/form.component';
 import { ClientComponent } from './client/client.component';
 import { ClientDetailComponent } from './client/client-detail/client-detail.component';
 import { NewRegisterComponent } from './client/form/new-register/new-register.component';
+import { ConfirmDialogComponent } from './generics/confirm-dialog/confirm-dialog.component';
 import { PolicyComponent } from './policy/policy.component';
 import { ReportsComponent } from './reports/reports.component';
 import { InsurersComponent } from './insurers/insurers.component';
+import { PolicyFormComponent } from './policy/policy-form/policy-form.component';
+import { PolicyNewComponent } from './policy/policy-new/policy-new.component';
+import { PolicyDetailComponent } from './policy/policy-detail/policy-detail.component';
+import { InsuredFormComponent } from './policy/policy-form/insured-form/insured-form.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -40,7 +46,8 @@ const appRoutes: Routes = [
   { path: 'client/:id', component: ClientDetailComponent },
   { path: 'newClient', component: NewRegisterComponent },
   { path: 'policy', component: PolicyComponent },
-  // { path: 'policy/:id', component: PolicyComponent },
+  { path: 'policy/:id', component: PolicyDetailComponent },
+  { path: 'newPolicy', component: PolicyNewComponent },
   { path: 'reports', component: ReportsComponent },
   { path: 'insurers', component: InsurersComponent }
 ];
@@ -53,9 +60,14 @@ const appRoutes: Routes = [
     ClientComponent,
     ClientDetailComponent,
     NewRegisterComponent,
+    ConfirmDialogComponent,
     PolicyComponent,
     ReportsComponent,
     InsurersComponent,
+    PolicyFormComponent,
+    PolicyNewComponent,
+    PolicyDetailComponent,
+    InsuredFormComponent
   ],
   imports: [
     HttpModule,
@@ -78,9 +90,11 @@ const appRoutes: Routes = [
     MatCardModule,
     MatCheckboxModule,
     MatPaginatorModule,
+    MatDialogModule,
     MatTooltipModule
   ],
   providers: [],
+  entryComponents:[ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

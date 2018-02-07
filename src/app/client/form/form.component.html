@@ -1,13 +1,13 @@
 <div>
 	<header class="head-title">
-		<h3>Datos del Cliente</h3>
+		<h3>Insured Client</h3>
 	</header>
-	
+
 	<form action="" #clientForm="ngForm">
 		<mat-form-field class="full-width">
 			<input matInput placeholder="Nombre" name="nombreCompleto" [(ngModel)]="_client.nombreCompleto" #nombreCompleto="ngModel"
 			 required>
-			 <mat-error *ngIf="nombreCompleto.invalid && (nombreCompleto.dirty || nombreCompleto.touched)">El Nombre completo del cliente es requerido.</mat-error>
+			<mat-error *ngIf="nombreCompleto.invalid && (nombreCompleto.dirty || nombreCompleto.touched)">El Nombre completo del cliente es requerido.</mat-error>
 		</mat-form-field>
 		<div *ngIf="nombreCompleto.invalid && (nombreCompleto.dirty || nombreCompleto.touched)" class="alert alert-danger">
 
@@ -15,10 +15,9 @@
 
 			</div>
 		</div>
-		<mat-radio-group name="genero" [(ngModel)]="_client.genero" #genero="ngModel"
-		required>
+		<mat-radio-group name="genero" [(ngModel)]="_client.genero" #genero="ngModel" required>
 			<label>
-				<mat-radio-button value="H" class="md-accent radioBtn">Hombre</mat-radio-button>
+				<mat-radio-button value="H" class="radioBtn">Hombre</mat-radio-button>
 			</label>
 			<label>
 				<mat-radio-button value="M" class="radioBtn">Mujer</mat-radio-button>
@@ -29,39 +28,23 @@
 			<input matInput placeholder="Cédula" name="identificacion" [(ngModel)]="_client.identificacion" #identificacion="ngModel">
 		</mat-form-field>
 
-		<div class="row">
+		<div class="row" *ngFor="let contacto of _client.clientesContactos">
 			<div class="col-md-8">
 				<mat-form-field class="full-width">
-					<input matInput placeholder="Teléfono 1">
+					<input matInput placeholder="Teléfono" name="descripcion" #descripcion="ngModel" [(ngModel)]="contacto.valor" required>
+					<mat-error *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">Un teléfono del cliente es requerido.</mat-error>
 				</mat-form-field>
 			</div>
 			<div class="col-md-4">
-				<mat-form-field class="full-width">
-					<mat-select placeholder="Tipo">
-						<mat-option value="1">Casa</mat-option>
-						<mat-option value="2">Celular</mat-option>
-						<mat-option value="3">Trabajo</mat-option>
+				<mat-form-field class="full-width" >
+					<mat-select required placeholder="Tipo" name="tipoContacto" #tipoContacto="ngModel" [(ngModel)]="contacto.idTipoContacto">
+						<mat-option *ngFor="let type of _contactTypes" [value]="type.id">{{type.descripcion}}</mat-option>
 					</mat-select>
+					<mat-error *ngIf="tipoContacto.invalid && (tipoContacto.dirty || tipoContacto.touched)">Elija el tipo de teléfono.</mat-error>
 				</mat-form-field>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-8">
-				<mat-form-field class="full-width">
-					<input matInput placeholder="Teléfono 2">
-				</mat-form-field>
-			</div>
-			<div class="col-md-4">
-				<mat-form-field class="full-width">
-					<mat-select placeholder="Tipo">
-						<mat-option value="1">Casa</mat-option>
-						<mat-option value="2">Celular</mat-option>
-						<mat-option value="3">Trabajo</mat-option>
-					</mat-select>
-				</mat-form-field>
-			</div>
-		</div>
-		<a href="" class="add-new-field">[+] Agregar otro teléfono</a>
+		<span class="add-new-field" (click)="addContactRow();">[+] Agregar teléfono</span>
 
 		<mat-form-field class="full-width">
 			<input matInput placeholder="Correo" [(ngModel)]="_client.correo" name="correo" #correo="ngModel">
@@ -75,6 +58,7 @@
 		</mat-form-field>
 		<div class="form-btn-bottom">
 			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid">Guardar</button>
+			<button mat-raised-button color="red" (click)="deleteClient()" *ngIf="_client.id">Eliminar</button>
 			<a mat-raised-button color="red" [routerLink]="['/clients']">Cancelar</a>
 		</div>
 	</form>

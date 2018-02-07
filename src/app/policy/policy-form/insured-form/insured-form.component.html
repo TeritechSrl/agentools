@@ -1,0 +1,81 @@
+<header class="head-title">
+    <h3>Cliente a asegurar</h3>
+</header>
+
+<mat-radio-group name="clientType">
+  <label>
+    <mat-radio-button value="existing" class="radioBtn" checked>Existente</mat-radio-button>
+  </label>
+  <label>
+    <mat-radio-button value="newReg" class="radioBtn">Nuevo</mat-radio-button>
+  </label>
+</mat-radio-group>
+
+<div>
+  <mat-card id="fake-search">
+      <form action="">
+        <span>Buscar...</span>
+        <i class="ion-android-search"></i>
+      </form>
+  </mat-card>
+
+  <div id="client-info">
+      <span><strong>Nombre:</strong> Hairo Mercedes</span>
+      <span><strong>Cédula:</strong> 001-1891513-1</span>
+      <span><strong>Teléfono 1:</strong> 809-405-6557 &#124; Celular</span>
+      <span><strong>Teléfono 2:</strong> 809-807-6303 &#124; Casa</span>
+      <span><strong>Correo:</strong> hairo.mh@gmail.com</span>
+  </div>
+</div>
+
+<div id="new-client-form">
+  <form action="">
+      <mat-radio-group name="genero" placeholder="s">
+        <span class="mat-radio-static-label">Género:</span>
+        <label>
+          <mat-radio-button value="H" class="radioBtn" checked>Hombre</mat-radio-button>
+        </label>
+        <label>
+          <mat-radio-button value="M" class="radioBtn">Mujer</mat-radio-button>
+        </label>
+      </mat-radio-group>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nombre" name="nombreCompleto">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Cédula">
+      </mat-form-field>
+
+      <div class="row">
+        <div class="col-md-8">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Teléfono">
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="full-width" >
+              <mat-select placeholder="Tipo">
+                <mat-option value="">Casa</mat-option>
+                <mat-option value="">Celular</mat-option>
+                <mat-option value="">Trabajo</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+      </div>
+
+      <mat-form-field class="full-width">
+        <textarea matInput placeholder="Dirección"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Correo">
+      </mat-form-field>
+
+      <div class="dialog-message">
+        <p>Los datos se guardarán automáticamente al registrar la póliza. Puede editar y/o 
+          agregar más información sobre el asegurado en la sección de clientes</p>
+      </div>
+  </form>
+</div>

@@ -1,7 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 @import 'assets/scss/main.scss';
 
+/*===============================================================================================================================
+========================================================= GENERAL STYLES ========================================================
+===============================================================================================================================*/
 * { box-sizing: border-box; }
 
 body { 
@@ -17,8 +19,6 @@ h1, h2, h3, h4, h5, h6 { font-family: "Roboto", sans-serif; margin-top: 0;}
 
 a { color: $blue; }
 
-.container { padding: 0 20px; width: 100%; }
-
 #wrapper, .navbar .container { 
 	border-radius: 0; 
 	margin: 0 auto;
@@ -27,8 +27,121 @@ a { color: $blue; }
 	width: 100%;
 }
 
-#main-body { min-height: 496px; padding: 25px; }
+#main-body { 
+	min-height: 496px; 
+	overflow: hidden;
+	padding: 25px; 
+}
 
+.container { padding: 0 20px; width: 100%; }
+
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+.full-width { max-width: 100%; width: 100%; }
+img.full-width { height: auto; }
+
+.head-title { margin-bottom: 30px; text-transform: uppercase; }
+
+.label_title { 
+	color: #001f5b; 
+	display: block;
+	margin-bottom: 6px; 
+}
+
+.add-new-field { 
+	color: #2980b9;
+	cursor: pointer;
+	display: block;
+	font-size: 13px;
+	margin: -10px 0 30px;  
+}
+
+.separator-line { border-right: 1px solid #e5e5e5; }
+
+//COLUMNS
+.wrap-col { display: table; width: 100%; }
+
+.left-col, .middle-col, .right-col { display: table-cell; vertical-align: top; }
+
+.left-col { padding-right: 20px; }
+
+.middle-col { padding: 0 20px; }
+
+.right-col { padding-left: 20px; }
+
+//MAT-CARD SEARCH
+#searchBox { 
+	margin-bottom: 20px;
+	padding: 0;
+	position: relative;
+
+	.searchInput {
+		border: 0;
+		border-bottom: 2px solid transparent;
+		height: 48px;
+		outline: none;
+		padding: 0 60px 0 20px;
+		transition: border-color .3s ease;
+		width: 100%;
+		&:focus {
+			border-bottom-color: rgba($primary, .6);
+			opacity: 1;
+		}
+	}
+
+	button { 
+		font-size: 22px;
+		min-width: auto;
+		position: absolute;
+		right: 5px;
+		top: 5px;
+	}
+}
+
+//LIST OF RECORD
+.top-options {
+	margin-bottom: 10px;
+	overflow: hidden;
+
+	&.icons { margin-bottom: 0; }
+
+	.mat-icon-button { font-size: 26px; }
+}
+
+.table {
+	width: 100%;
+
+	thead { border-top: 0 !important; }
+
+	th { text-align: left; }
+
+	.check { width: 3%; }
+
+	.thumbnail { width: 5%; }
+
+	.id { width: 3%; }
+
+	img { 
+		border-color: #CCC;
+		height: 30px;
+		padding: 2px;
+		width: 30px;
+	}
+}
+//MESSAGES
+.dialog-message {
+	background-color: #e7f4f8;
+	border-radius: .3em;
+	font-size: 13px;
+	padding: 10px 15px;
+	width: 100%;
+
+	p { margin: 0; }
+}
+/*===============================================================================================================================
+============================================================= HEADER ============================================================
+===============================================================================================================================*/
 #user-options { 
 	float: right; 
 	padding-top: 7px; 
@@ -55,71 +168,10 @@ a { color: $blue; }
 		margin-left: 2px; 
 	}
 }
-
-#searchBox { 
-	margin-bottom: 20px;
-	padding: 0;
-	position: relative;
-
-	.searchInput {
-		border: 0;
-		border-bottom: 2px solid transparent;
-		height: 48px;
-		outline: none;
-		padding: 0 60px 0 20px;
-		transition: border-color .3s ease;
-		width: 100%;
-
-		&:focus {
-			border-bottom-color: rgba($primary, .6);
-			opacity: 1;
-		}
-	}
-
-	button { 
-		font-size: 22px;
-		min-width: auto;
-		position: absolute;
-		right: 5px;
-		top: 5px;
-	}
-}
-
-.pull-left { float: left; }
-.pull-right { float: right; }
-
-.top-options {
-	margin-bottom: 10px;
-	overflow: hidden;
-
-	&.icons { margin-bottom: 0; }
-
-	.mat-icon-button { font-size: 26px; }
-}
-
-.table {
-	width: 100%;
-
-	thead { border-top: 0 !important; }
-
-	th { text-align: left; }
-
-	.check { width: 3%; }
-
-	.thumbnail { width: 5%; }
-	
-	.id { width: 3%; }
-
-	img { 
-		border-color: #CCC;
-		height: 30px;
-		padding: 2px;
-		width: 30px;
-	}
-}
-
+/*===============================================================================================================================
+========================================================= FOOTER SECTION ========================================================
+===============================================================================================================================*/
 footer {
-
 	a { 
 		color: $white; 
 		text-decoration: none; 
@@ -159,68 +211,25 @@ footer {
 		a { padding-left: 5px; }	
 	}
 }
-
-
-.head-title { margin-bottom: 30px; text-transform: uppercase; }
-
-.full-width { max-width: 100%; width: 100%; }
-img.full-width { height: auto; }
-
-.label_title { 
-	color: #001f5b; 
-	display: block;
-	margin-bottom: 6px; 
-}
-
-.add-new-field { 
-	display: block;
-	font-size: 13px;
-	margin: -10px 0 25px;  
-	text-decoration: none;
-}
-
-.separator-line { border-right: 1px solid #e5e5e5; }
-
-#client-info-page { 
-	display: table; 
-	width: 100%; 
-
-	.left-col, .middle-col, .right-col { display: table-cell; vertical-align: top; }
-
-	#user-profile { 
-		padding-right: 20px; 
-		width: 15%; 
-
-		button { margin-top: 10px; }
-	}
-
-	#insured { padding: 0 20px; width: 50%; }
-
-	#policy { 
-		padding-left: 20px; 
-		width: 35%; 
-
-		.info-block {
-			border-bottom: 1px solid #e5e5e5; 
-			margin-bottom: 8px;
-			padding: 0 0 10px;
-		
-			&:last-child { border-bottom: 0; }
-		}
-		
-		.row { font-size: 14px; }
-	}
-}
-
+/*===============================================================================================================================
+========================================================== FORM STYLES ==========================================================
+===============================================================================================================================*/
 .form-btn-bottom { 
 	margin-top: 10px;
+	text-align: right;
 
 	.mat-raised-button { 
-		margin-right: 10px; 
+		margin-right: 10px;
+		 
 		&:last-child { margin-right: 0; }
 	}
 }
 
+form .mat-form-field { margin-bottom: 8px; }
+
+.mat-form-field-underline { background-color: rgba(229, 229, 229, 1); }
+
+//LABEL
 .mat-form-field-label, .mat-focused .mat-form-field-label.mat-form-field-placeholder {
 	color: $primary !important;	
 	font-size: 16px !important;
@@ -233,18 +242,20 @@ img.full-width { height: auto; }
 	font-weight: normal !important;
 }
 
-//buttons
+.mat-radio-static-label {
+	color: $primary !important;	
+	display: block;
+	font-size: 13px !important;
+	font-weight: bold !important; 
+}
+
+//BUTTONS
 .mat-raised-button.mat-accent { background-color: $accent !important; }
+
 .mat-raised-button.mat-red { color: $white; background-color: $red !important; }
 
-form .mat-form-field { margin-bottom: 8px; }
+//RADIO & CHECKBOX
 form .mat-radio-group { display: block; margin-bottom: 20px; }
-
-.mat-form-field-underline { background-color: rgba(229, 229, 229, 1); }
-
-.mat-radio-group > label { margin-right: 10px; }
-.mat-radio-group > label:last-child { margin-right: 0; }
-.mat-radio-outer-circle { border-color: #ccc; }
 
 .mat-radio-button.mat-accent .mat-radio-inner-circle, 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background, 
@@ -254,3 +265,116 @@ form .mat-radio-group { display: block; margin-bottom: 20px; }
 
 .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
 .mat-checkbox.mat-accent .mat-ripple-element { background-color:rgba(230, 100, 0, .26) !important; }
+
+.mat-radio-group > label { margin-right: 10px; }
+.mat-radio-group > label:last-child { margin-right: 0; }
+.mat-radio-outer-circle { border-color: #ccc; }
+
+/*===============================================================================================================================
+========================================================= CLIENT SECTION ========================================================
+===============================================================================================================================*/
+#client-info-page { 
+	#user-profile { 		 
+		width: 15%; 
+
+		button { margin-top: 10px; }
+	}
+
+	#insured { width: 50%; }
+
+	#policy {  
+		width: 35%; 
+
+		.info-block {
+			border-bottom: 1px solid #e5e5e5; 
+			margin-bottom: 8px;
+			padding: 0 0 10px;
+
+			&:last-child { border-bottom: 0; }
+		}
+
+		.row { font-size: 14px; }
+	}
+}
+
+#client_table td { padding: 4px 10px; }
+
+/*===============================================================================================================================
+========================================================= POLICY SECTION ========================================================
+===============================================================================================================================*/
+#fake-search {
+	cursor: pointer;
+	margin: 20px 0 30px;
+	padding: 10px 15px;
+	
+	span { opacity: .8; }
+
+	i { 
+		color: $primary; 
+		font-size: 18px;
+		position: absolute;
+		right: 15px;
+	}
+}
+
+#insured-client {
+	width: 28%;
+
+	#searchBox { 
+		margin: 20px 0 30px; 
+
+		.searchInput { height: 40px; }
+
+		button { top: 0; }
+	}
+
+	form .mat-form-field { margin-bottom: 0; }
+
+	#client-info {
+		font-size: 14px;
+
+		span {
+			border-bottom: 1px solid #e5e5e5; 
+			display: block;
+			margin-bottom: 4px;
+			padding-bottom: 4px;
+		}
+
+		i { font-size: 17px; margin-right: 5px; }
+
+		strong { color: #001f5b; margin-right: 5px; }
+	}
+
+	#new-client-form { margin-top: 30px; }
+} 
+
+#policy-detail #pay-method {
+	.mat-radio-static-label {margin-bottom: -10px;  }
+
+	.mat-radio-group { display: inline-block; }
+
+	.mat-form-field { 
+		margin-left: 20px; 
+		width: 80px;
+	}
+	
+}
+
+#register-pay {
+	width: 25%;
+
+	.fee {
+		background-color: #f1f1f1;
+		border-radius: .3em;
+		margin-bottom: 10px;
+		padding: 10px;
+
+		span { display: block; font-size: 14px; }
+	}
+
+	.add-new-field {  
+		font-size: 15px;
+		margin-top: 10px;
+		text-align: right; 
+	}
+}

@@ -1,0 +1,102 @@
+<header class="head-title">
+  <h3>Datos de la póliza</h3>
+</header>
+
+<form action="">
+  <mat-form-field class="full-width" >
+    <mat-select placeholder="Aseguradora:">
+      <mat-option value="">Universal</mat-option>
+      <mat-option value="">ARS Humano</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <span class="add-new-field">[+] Agregar nueva</span>
+  
+  <mat-form-field class="full-width" >
+    <mat-select placeholder="Categoría:">
+      <mat-option value="">Vehículo</mat-option>
+      <mat-option value="">Salud</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field class="full-width" >
+    <mat-select placeholder="Tipo de póliza:">
+      <mat-option value="">Individual</mat-option>
+      <mat-option value="">Colectiva</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field class="full-width" >
+    <mat-select placeholder="Categoría:">
+      <mat-option value="">Vehículo</mat-option>
+      <mat-option value="">Salud</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <div id="new-insured">
+    <div class="row">
+      <div class="col-md-7">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Asegurado 1:">
+        </mat-form-field>
+      </div>
+      <div class="col-md-5">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Cédula:">
+        </mat-form-field>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-7">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Asegurado 1:">
+        </mat-form-field>
+      </div>
+      <div class="col-md-5">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Cédula:">
+        </mat-form-field>
+      </div>
+    </div>
+    <span class="add-new-field">[+] Agregar asegurado</span>
+  </div>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Número:">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Prima:">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput type="number" placeholder="Saldo:" value="4000" disabled>
+  </mat-form-field>
+
+  <div id="pay-method">
+    <span class="mat-radio-static-label">Forma de pago:</span>
+    <mat-radio-group name="genero" placeholder="s">
+        <label>
+          <mat-radio-button value="H" class="radioBtn">Total</mat-radio-button>
+        </label>
+        <label>
+          <mat-radio-button value="M" class="radioBtn">Cuotas</mat-radio-button>
+        </label>
+    </mat-radio-group>
+    <mat-form-field >
+        <mat-select value="">
+          <mat-option value="">3</mat-option>
+          <mat-option value="">4</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Vigencia:" >
+  </mat-form-field>
+
+  <div class="form-btn-bottom">
+			<button mat-raised-button color="primary">Guardar</button>
+			<a mat-raised-button color="red" [routerLink]="['/clients']">Cancelar</a>
+		</div>
+</form>

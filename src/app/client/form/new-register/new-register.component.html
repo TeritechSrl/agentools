@@ -1,11 +1,11 @@
-<div id="client-info-page" class="animated fadeIn">
+<div id="client-info-page" class="wrap-col animated fadeIn">
     <div id="user-profile" class="left-col separator-line">
         <img src="../assets/img/xample_pic.jpg" alt="" class="border full-width">
         <button class="full-width" mat-raised-button color="accent"><i class="ion-android-upload"></i> Subir</button>
     </div>
 
     <div id="insured" class="middle-col">
-        <client-form [client]="_client"></client-form>
+        <client-form [client]="_client" [contactTypes]="_contactTypes" (clientSaved)="saveHandler($event)"></client-form>
     </div> 
 
     <div class="right-col"></div>
