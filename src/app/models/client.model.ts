@@ -21,5 +21,7 @@ export class Client{
 
     notas:string;
 
+    avatar:string;
+
     clientesContactos:ClienteContacto[];
 }

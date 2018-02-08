@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 export class ClientService {
 
   baseUrl:string = "https://teritechapi.azurewebsites.net/api/";
-  //baseUrl:string = "http://localhost:50776/api/";
+  // baseUrl:string = "http://localhost:50776/api/";
 
   _clients:Client[] = [];
 
@@ -40,6 +40,16 @@ export class ClientService {
   }
   deleteClient(client:Client):Observable<Client>{
     return this.http.delete(this.baseUrl+'Clientes/'+client.id)
+    .map((res:Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+  saveAvatar(clientId:number,file:any){
+    let headers = new Headers()  
+//headers.append('Content-Type', 'json');  
+//headers.append('Accept', 'application/json');  
+  let options = new RequestOptions({ headers: headers });  
+
+    return this.http.post(this.baseUrl+'Clientes/UploadProfilePicture/'+clientId,file,options)
     .map((res:Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
