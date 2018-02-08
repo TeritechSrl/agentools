@@ -9,7 +9,7 @@ export class FileUploaderService {
     }
     uploadFile() { }
     public avatarChange(event, clientId: number) {
-        this._clientService.saveAvatar(clientId, this.fileFromEvent(event));
+        return this._clientService.saveAvatar(clientId, this.fileFromEvent(event));
     }
 
     private fileFromEvent(event: any) {
