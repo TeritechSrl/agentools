@@ -6,10 +6,15 @@
 		</form>
 	</mat-card>
 
+	<mat-progress-spinner 
+    	color="primary"
+		mode="indeterminate">
+	</mat-progress-spinner>
+
 	<div class="top-options">
 		<div class="icons pull-right">
 			<a href="/" 
-				routerLink="/newClient"
+				routerLink="/newPolicy"
 				mat-icon-button 
 				matTooltip="Agregar nuevo">				
 				<i class="ion-android-add-circle"></i>
@@ -40,13 +45,12 @@
 			<tr>				
 				<td></td>
         		<td>12345</td>
-				<!-- <td><a href="/" [routerLink]="['/policy', policy.id]">Hairo Mercedes</a></td> -->
+				<td><a href="/" [routerLink]="['/policy', 0]">Hairo Mercedes</a></td>
 				<td>Hairo Mercedes</td>
 				<td>Universal</td>
 				<td>Vehículo</td>
 				<td>Individual</td>
 				<td>12,000</td>
-				<td>4,000</td>
 				<td>02/02/18 - 02/02/19</td>
 			</tr>
 			<tr>				

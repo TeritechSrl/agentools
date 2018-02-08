@@ -1,9 +1,16 @@
-<h1 mat-dialog-title>{{data.headerText}}</h1>
+<div mat-dialog-title></div>
 <div mat-dialog-content>
-  <p [innerHTML]="data.question"></p>
-  <small>{{data.additionalInfo}}</small>
+  <div class="row">
+    <div class="dialog-icon col-md-2">
+      <i class="ion-android-warning"></i>
+    </div>
+    <div class="col-md-10">
+        <p [innerHTML]="data.question" class="dialog"></p>
+        <p class="dialog">{{data.additionalInfo}}</p>
+    </div>
+  </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">{{data.cancelText}}</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial  color="red">{{data.okText}}</button>
+<div mat-dialog-actions style="margin-left: 56px;">
+  <button mat-raised-button color="red" [mat-dialog-close]="true" cdkFocusInitial>{{data.okText}}</button>
+  <button mat-raised-button (click)="onNoClick()">{{data.cancelText}}</button>
 </div>

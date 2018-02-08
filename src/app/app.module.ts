@@ -21,7 +21,9 @@ import {
   MatCheckboxModule,
   MatPaginatorModule,
   MatDialogModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSlideToggleModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -38,6 +40,7 @@ import { PolicyFormComponent } from './policy/policy-form/policy-form.component'
 import { PolicyNewComponent } from './policy/policy-new/policy-new.component';
 import { PolicyDetailComponent } from './policy/policy-detail/policy-detail.component';
 import { InsuredFormComponent } from './policy/policy-form/insured-form/insured-form.component';
+import { RegisterPayComponent } from './policy/policy-form/register-pay/register-pay.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -67,7 +70,8 @@ const appRoutes: Routes = [
     PolicyFormComponent,
     PolicyNewComponent,
     PolicyDetailComponent,
-    InsuredFormComponent
+    InsuredFormComponent,
+    RegisterPayComponent
   ],
   imports: [
     HttpModule,
@@ -91,7 +95,9 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   entryComponents:[ConfirmDialogComponent],

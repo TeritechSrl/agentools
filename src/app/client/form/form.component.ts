@@ -36,13 +36,13 @@ export class FormComponent {
   }
   deleteClient(): void {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '250px',
+      width: '350px',
       data: {
-        headerText: 'Confirmación',
-        question: '¿Desea eliminar el cliente <b>' + this._client.nombreCompleto + '</b>?',
+        headerText: 'Eliminar cliente',
+        question: '¿Está seguro que desea eliminar el cliente <b>' + this._client.nombreCompleto + '</b>?',
         additionalInfo: 'Esta acción no se puede deshacer.',
-        cancelText: 'Mejor no',
-        okText: 'Eliminarlo'
+        okText: 'Eliminar',
+        cancelText: 'Cancelar',
       }
     });
 

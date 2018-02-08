@@ -1,6 +1,7 @@
 <div>
 	<header class="head-title">
-		<h3>Insured Client</h3>
+		<h3>Cliente Asegurado</h3>
+		<span class="status active">Estatus: activo</span>
 	</header>
 
 	<form action="" #clientForm="ngForm">
@@ -53,9 +54,14 @@
 		<mat-form-field class="full-width">
 			<textarea matInput placeholder="Dirección" [(ngModel)]="_client.direccion" name="direccion" #direccion="ngModel"></textarea>
 		</mat-form-field>
+
 		<mat-form-field class="full-width">
 			<textarea matInput placeholder="Notas" [(ngModel)]="_client.notas" name="notas" #notas="ngModel"></textarea>
 		</mat-form-field>
+
+		<span class="mat-radio-static-label">Estatus:</span>
+		<mat-slide-toggle class="example-margin" placeholder="Estatus">Activo</mat-slide-toggle>
+
 		<div class="form-btn-bottom">
 			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid">Guardar</button>
 			<button mat-raised-button color="red" (click)="deleteClient()" *ngIf="_client.id">Eliminar</button>

@@ -1,5 +1,6 @@
 <header class="head-title">
   <h3>Datos de la póliza</h3>
+  <span class="status active">Estatus: activa</span>
 </header>
 
 <form action="">
@@ -75,12 +76,12 @@
 
   <div id="pay-method">
     <span class="mat-radio-static-label">Forma de pago:</span>
-    <mat-radio-group name="genero" placeholder="s">
+    <mat-radio-group name="genero">
         <label>
-          <mat-radio-button value="H" class="radioBtn">Total</mat-radio-button>
+          <mat-radio-button value="total" class="radioBtn">Total</mat-radio-button>
         </label>
         <label>
-          <mat-radio-button value="M" class="radioBtn">Cuotas</mat-radio-button>
+          <mat-radio-button value="cuota" class="radioBtn">Cuotas</mat-radio-button>
         </label>
     </mat-radio-group>
     <mat-form-field >
@@ -91,12 +92,27 @@
     </mat-form-field>
   </div>
 
+  <div id="frecuency-payment">
+    <mat-form-field class="full-width" >
+      <mat-select placeholder="Frecuencia de pago:">
+        <mat-option value="">Semanal</mat-option>
+        <mat-option value="">Quincenal</mat-option>
+        <mat-option value="">Mensual</mat-option>
+        <mat-option value="">6 meses</mat-option>
+        <mat-option value="">Anual</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
   <mat-form-field class="full-width">
     <input matInput placeholder="Vigencia:" >
   </mat-form-field>
 
+  <span class="mat-radio-static-label">Estatus:</span>
+  <mat-slide-toggle class="example-margin" placeholder="Estatus">Activa</mat-slide-toggle>
+
   <div class="form-btn-bottom">
 			<button mat-raised-button color="primary">Guardar</button>
-			<a mat-raised-button color="red" [routerLink]="['/clients']">Cancelar</a>
+			<a mat-raised-button color="red" [routerLink]="['/policy']">Cancelar</a>
 		</div>
 </form>

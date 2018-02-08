@@ -4,14 +4,14 @@
 
 <mat-radio-group name="clientType">
   <label>
-    <mat-radio-button value="existing" class="radioBtn" checked>Existente</mat-radio-button>
+    <mat-radio-button #existing value="existing" class="radioBtn" checked >Existente</mat-radio-button>
   </label>
   <label>
-    <mat-radio-button value="newReg" class="radioBtn">Nuevo</mat-radio-button>
+    <mat-radio-button #newReg value="newReg" class="radioBtn">Nuevo</mat-radio-button>
   </label>
 </mat-radio-group>
 
-<div>
+<div *ngIf="existing.checked" class="animated fadeIn">
   <mat-card id="fake-search">
       <form action="">
         <span>Buscar...</span>
@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<div id="new-client-form">
+<div id="new-client-form" class="animated fadeIn" *ngIf="newReg.checked" >
   <form action="">
       <mat-radio-group name="genero" placeholder="s">
         <span class="mat-radio-static-label">Género:</span>
