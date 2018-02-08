@@ -29,8 +29,9 @@ export class ClientDetailComponent extends ClientManager implements OnInit, Mode
   _client: Client;
   _contactTypes: ContactType[];
   saveImage(event: any,id:number){
+    let cl = this._client;
     this._fileUploader.avatarChange(event,id).subscribe(function(data){
-      this._client.avatar = data;
+      cl.avatar = data;
     });
   }
   saveHandler(event: any) {
