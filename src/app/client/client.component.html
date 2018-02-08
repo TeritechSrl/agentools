@@ -37,7 +37,10 @@
 		<tbody>
 			<tr *ngFor="let client of _clients">
 				<th><section><mat-checkbox></mat-checkbox></section></th>
-				<td><img src="../assets/img/xample_pic.jpg" alt="" class="circle border"></td>
+				<td>
+					<img *ngIf="!client.avatar" src="../assets/img/xample_pic.jpg" alt="" class="circle border">
+					<img *ngIf="client.avatar" src="https://teritechsrl.blob.core.windows.net/agentools/{{client.codigo}}/{{client.avatar}}" alt="" class="circle border">
+				</td>
 				<td>{{client.id}}</td>
 				<td><a href="/" [routerLink]="['/client', client.id]">{{client.nombreCompleto}}</a></td>
 				<td><i class="ion-android-mail"></i> {{client.correo}}</td>
