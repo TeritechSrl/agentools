@@ -39,7 +39,7 @@
 				<th><section><mat-checkbox></mat-checkbox></section></th>
 				<td>
 					<img *ngIf="!client.avatar" src="../assets/img/xample_pic.jpg" alt="" class="circle border">
-					<img *ngIf="client.avatar" src="https://teritechsrl.blob.core.windows.net/agentools/{{client.codigo}}/{{client.avatar}}" alt="" class="circle border">
+					<img *ngIf="client.avatar" src="{{client.avatar}}" alt="" class="circle border">
 				</td>
 				<td>{{client.id}}</td>
 				<td><a href="/" [routerLink]="['/client', client.id]">{{client.nombreCompleto}}</a></td>

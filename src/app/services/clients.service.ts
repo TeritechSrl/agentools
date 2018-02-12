@@ -1,56 +1,53 @@
-import { Injectable }     from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import {Observable} from 'rxjs/Rx';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 import { Client } from '../models/client.model';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ClientService {
 
-  baseUrl:string = "https://teritechapi.azurewebsites.net/api/";
-  // baseUrl:string = "http://localhost:50776/api/";
+  _clients: Client[] = [];
 
-  _clients:Client[] = [];
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  constructor (
-    private http: Http
-  ) {}
-
-  getClient(id:number):Observable<Client>{
-    return this.http.get(this.baseUrl+'Clientes/'+id)
-    .map((res:Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  parseObject(client:Client){
+    let newClient:Client = new Client();
+    Object.assign(newClient, client);
+    return newClient;
   }
-  getClients():Observable<Client[]> {
-    return this.http.get(this.baseUrl+'Clientes')
-    .map((res:Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  parseArray(clients: Client[]): Client[] {
+    let clientsNew: Client[] = [];
+    for (let client of clients) {
+      clientsNew.push(this.parseObject(client));
+    }
+    return clientsNew;
   }
-  editClient(client:Client):Observable<Client>{
-    return this.http.put(this.baseUrl+'Clientes/'+client.id,client)
-    .map((res:Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  getClient(id: number): Observable<Client> {
+    return this.http.get<Client>('Clientes/' + id)
+    .map(res => this.parseObject(res));
   }
-  createClient(client:Client):Observable<Client>{
-    return this.http.post(this.baseUrl+'Clientes/',client)
-    .map((res:Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  getClients(): Observable<Client[]> {
+    return this.http.get<Client[]>('Clientes')
+      .map(res => this.parseArray(res));
   }
-  deleteClient(client:Client):Observable<Client>{
-    return this.http.delete(this.baseUrl+'Clientes/'+client.id)
-    .map((res:Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  editClient(client: Client): Observable<Client> {
+    return this.http.put<Client>('Clientes/' + client.id, client)
+    .map(res => this.parseObject(res));
   }
-  saveAvatar(clientId:number,file:any){
-    let headers = new Headers()  
-//headers.append('Content-Type', 'json');  
-//headers.append('Accept', 'application/json');  
-  let options = new RequestOptions({ headers: headers });  
-
-    return this.http.post(this.baseUrl+'Clientes/UploadProfilePicture/'+clientId,file,options)
-    .map((res:Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  createClient(client: Client): Observable<Client> {
+    return this.http.post<Client>('Clientes/', client)
+    .map(res => this.parseObject(res));
+  }
+  deleteClient(client: Client): Observable<Client> {
+    return this.http.delete<Client>('Clientes/' + client.id)
+    .map(res => this.parseObject(res));
+  }
+  saveAvatar(clientId: number, file: any): Observable<string> {
+    return this.http.post<string>('Clientes/UploadProfilePicture/' + clientId, file);
   }
 }

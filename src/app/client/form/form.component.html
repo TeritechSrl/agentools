@@ -1,7 +1,7 @@
 <div>
 	<header class="head-title">
 		<h3>Cliente Asegurado</h3>
-		<span class="status active">Estatus: activo</span>
+		<span  *ngIf="_client.id" class="status"  [ngClass]="{'active': _client.activo, 'inactive': !_client.activo}">Estatus: {{_client.activo ? 'Activo' : 'Inactivo'}}</span>
 	</header>
 
 	<form action="" #clientForm="ngForm">
@@ -37,7 +37,7 @@
 				</mat-form-field>
 			</div>
 			<div class="col-md-4">
-				<mat-form-field class="full-width" >
+				<mat-form-field class="full-width">
 					<mat-select required placeholder="Tipo" name="tipoContacto" #tipoContacto="ngModel" [(ngModel)]="contacto.idTipoContacto">
 						<mat-option *ngFor="let type of _contactTypes" [value]="type.id">{{type.descripcion}}</mat-option>
 					</mat-select>
@@ -59,8 +59,10 @@
 			<textarea matInput placeholder="Notas" [(ngModel)]="_client.notas" name="notas" #notas="ngModel"></textarea>
 		</mat-form-field>
 
-		<span class="mat-radio-static-label">Estatus:</span>
-		<mat-slide-toggle class="example-margin" placeholder="Estatus">Activo</mat-slide-toggle>
+		<div *ngIf="_client.id">
+			<span class="mat-radio-static-label">Estatus:</span>
+			<mat-slide-toggle class="example-margin" placeholder="Estatus" [(ngModel)]="_client.activo" name="activo" #activo="ngModel">Activo</mat-slide-toggle>
+		</div>
 
 		<div class="form-btn-bottom">
 			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid">Guardar</button>
