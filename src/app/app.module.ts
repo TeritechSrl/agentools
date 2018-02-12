@@ -45,6 +45,7 @@ import { RegisterPayComponent } from './policy/policy-form/register-pay/register
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpLogInterceptor } from './overriders/interceptorhttp.overrider';
 import { Broadcaster } from './services/broadcaster.service';
+import { AppDisableWhileLoading } from './directives/appDisableWhileLoading.directive';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -75,7 +76,8 @@ const appRoutes: Routes = [
     PolicyNewComponent,
     PolicyDetailComponent,
     InsuredFormComponent,
-    RegisterPayComponent
+    RegisterPayComponent,
+    AppDisableWhileLoading
   ],
   imports: [
     HttpModule,

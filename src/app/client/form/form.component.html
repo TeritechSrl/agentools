@@ -65,7 +65,7 @@
 		</div>
 
 		<div class="form-btn-bottom">
-			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid">Guardar</button>
+			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid || isSaving">Guardar</button>
 			<button mat-raised-button color="red" (click)="deleteClient()" *ngIf="_client.id">Eliminar</button>
 			<a mat-raised-button color="red" [routerLink]="['/clients']">Cancelar</a>
 		</div>
