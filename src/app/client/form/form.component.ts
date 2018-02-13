@@ -26,7 +26,7 @@ export class FormComponent {
   @Output()
   clientDeleted: EventEmitter<Client> = new EventEmitter<Client>();
 
-  isSaving:boolean;
+  isSaving: boolean;
 
   addContactRow(): void {
     let newContact: ClienteContacto = new ClienteContacto;
@@ -51,6 +51,7 @@ export class FormComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.isSaving = true;
         this.clientDeleted.emit(this._client);
       }
     });

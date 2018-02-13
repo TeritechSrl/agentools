@@ -21,7 +21,7 @@ export class AppComponent {
             this.toastr.error(message.messageText, 'Lo sentimos.');
             break;
           default:
-            this.toastr.success(message.messageText, 'Success!');
+            this.toastr.success(message.messageText, 'Exito!');
             break;
         }
       });

@@ -6,6 +6,9 @@ import { ClientService } from '../../../services/clients.service';
 import { ContactTypeService } from '../../../services/contact_types.service';
 import { ClientManager } from '../../generics/client.manager';
 import { ModelManager } from '../../generics/model.imanager';
+import { AppCustomEvent } from '../../../appcustomevents';
+import { Broadcaster } from '../../../services/broadcaster.service';
+import { ToastMessage, ToastType } from '../../../models/toastMessage.model';
 
 @Component({
   selector: 'app-new-register',
@@ -21,15 +24,18 @@ export class NewRegisterComponent extends ClientManager implements OnInit, Model
   _contactTypes: ContactType[];
 
   saveHandler(event: any) {
-    let router: Router = this.router;
+    let ctx = this;
     this.getSavedMethod(event).subscribe(function (response) {
-      router.navigateByUrl('clients');
+      ctx.router.navigateByUrl('clients');
+      ctx.broadcaster.broadcast(AppCustomEvent.toast, new ToastMessage("Cliente creado correctamente.", 
+      ToastType.Ok));
     });
   }
   
   constructor(private route: ActivatedRoute,
     private router: Router,
-    _clientService: ClientService, _contactTypesService:ContactTypeService
+    _clientService: ClientService, _contactTypesService:ContactTypeService,
+    private broadcaster: Broadcaster
   ) {
     super(_clientService,_contactTypesService);
   }
