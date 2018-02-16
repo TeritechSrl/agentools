@@ -1,27 +1,41 @@
 import { ClienteContacto } from "./clientContact.model";
+import { environment } from "../../environments/environment";
 
-export class Client{
+export class Client {
 
-    public constructor(){
+    public constructor() {
         this.clientesContactos = [];
     }
-    id:number;
+    id: number;
 
-    nombreCompleto:string;
+    nombreCompleto: string;
 
-    genero:string;
+    codigo: string;
 
-    identificacion:string;
+    genero: string;
 
-    fechaNacimiento:string;
+    identificacion: string;
 
-    direccion:string;
+    fechaNacimiento: string;
 
-    correo:string;
+    direccion: string;
 
-    notas:string;
+    correo: string;
 
-    avatar:string;
+    notas: string;
 
-    clientesContactos:ClienteContacto[];
+    private _avatar: string;
+
+    clientesContactos: ClienteContacto[];
+
+    set avatar(avatar: string) {
+        this._avatar = avatar;
+    }
+    get avatar(): string {
+        if (this._avatar) {
+            return [environment.filescontainer, this.codigo, this._avatar].join('/');
+        } else {
+            return '';
+        }
+    }
 }

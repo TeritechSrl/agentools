@@ -26,6 +26,8 @@ export class FormComponent {
   @Output()
   clientDeleted: EventEmitter<Client> = new EventEmitter<Client>();
 
+  isSaving: boolean;
+
   addContactRow(): void {
     let newContact: ClienteContacto = new ClienteContacto;
     newContact.idTipoContacto = 1;
@@ -33,6 +35,7 @@ export class FormComponent {
   }
   saveClient(): void {
     this.clientSaved.emit(this._client);
+    this.isSaving = true;
   }
   deleteClient(): void {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -40,7 +43,7 @@ export class FormComponent {
       data: {
         headerText: 'Eliminar cliente',
         question: '¿Está seguro que desea eliminar el cliente <b>' + this._client.nombreCompleto + '</b>?',
-        additionalInfo: 'Esta acción no se puede deshacer.',
+        additionalInfo: 'Esta acción no se puede deshacer. También se borrarán todos los archivos relacionados al cliente y sus pólizas.',
         okText: 'Eliminar',
         cancelText: 'Cancelar',
       }
@@ -48,6 +51,7 @@ export class FormComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.isSaving = true;
         this.clientDeleted.emit(this._client);
       }
     });

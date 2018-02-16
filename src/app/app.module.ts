@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { MatIconModule } from '@angular/material/icon';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 import {
   MatButtonModule,
@@ -41,6 +42,10 @@ import { PolicyNewComponent } from './policy/policy-new/policy-new.component';
 import { PolicyDetailComponent } from './policy/policy-detail/policy-detail.component';
 import { InsuredFormComponent } from './policy/policy-form/insured-form/insured-form.component';
 import { RegisterPayComponent } from './policy/policy-form/register-pay/register-pay.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpLogInterceptor } from './overriders/interceptorhttp.overrider';
+import { Broadcaster } from './services/broadcaster.service';
+import { AppDisableWhileLoading } from './directives/appDisableWhileLoading.directive';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -71,13 +76,16 @@ const appRoutes: Routes = [
     PolicyNewComponent,
     PolicyDetailComponent,
     InsuredFormComponent,
-    RegisterPayComponent
+    RegisterPayComponent,
+    AppDisableWhileLoading
   ],
   imports: [
     HttpModule,
+    HttpClientModule,
     JsonpModule,
     BrowserModule,
     BrowserAnimationsModule,
+    ToastModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -99,7 +107,8 @@ const appRoutes: Routes = [
     MatSlideToggleModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: HttpLogInterceptor, multi: true },
+    Broadcaster],
   entryComponents:[ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
