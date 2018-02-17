@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  origin: 'https://teritechapi.azurewebsites.net/api/',
+  origin: 'https://apiagentools.azurewebsites.net/api/',
   filescontainer:'https://teritechsrl.blob.core.windows.net/agentools'
 };
