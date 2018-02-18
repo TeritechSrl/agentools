@@ -2,6 +2,8 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ClientService } from '../services/clients.service';
 import { Client } from '../models/client.model';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Paged } from '../models/paged.model';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-client',
@@ -10,17 +12,26 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 })
 export class ClientComponent implements OnInit {
 
-  _clients: Client[];
+  _clients: Paged<Client>;
+  _pageSize:number=10;
+  _pageNumber:number=0;
 
   constructor(private _clientService: ClientService) {
     
   }
 
+  paginationChanged(pageEvent:PageEvent){
+    this._pageNumber=pageEvent.pageIndex;
+    this._pageSize=pageEvent.pageSize;
+    
+    this._getClientsPaged();
+  }
   ngOnInit() {
-    this._clientService.getClients().subscribe(response => {
-      this._clients = response as Client[];
-      console.log(this._clients);
+   this._getClientsPaged();
+  }
+  _getClientsPaged(){
+    this._clientService.getClientsPaged(this._pageNumber,this._pageSize).subscribe(response => {
+      this._clients = response as Paged<Client>;
     });
   }
-
 }

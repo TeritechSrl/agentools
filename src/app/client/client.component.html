@@ -35,7 +35,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let client of _clients">
+			<tr *ngFor="let client of _clients.items">
 				<th><section><mat-checkbox></mat-checkbox></section></th>
 				<td>
 					<img *ngIf="!client.avatar" src="../assets/img/xample_pic.jpg" alt="" class="circle border">
@@ -50,8 +50,10 @@
 		</tbody>
 	</table>
 	<mat-paginator class="pull-right" 
-		[length]="25"
-		[pageSize]="10"
-		[pageSizeOptions]="[5, 10, 25]">
+		[length]="_clients.paging.totalItems"
+		[pageSize]="_pageSize"
+		[pageIndex]="_clients.paging.pageNumber"
+		[pageSizeOptions]="[5, 10, 25]"
+		(page)="paginationChanged($event)">
 	</mat-paginator>
 </div>
