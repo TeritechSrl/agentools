@@ -12,9 +12,11 @@ import { PageEvent } from '@angular/material';
 })
 export class ClientComponent implements OnInit {
 
-  _clients: Paged<Client>;
+  _clients: Paged<Client> = new Paged<Client>();
   _pageSize:number=10;
   _pageNumber:number=0;
+  _filterClients:any={nombreCompleto:''};
+  _clientesAutoComplete:Client[];
 
   constructor(private _clientService: ClientService) {
     
@@ -23,7 +25,7 @@ export class ClientComponent implements OnInit {
   paginationChanged(pageEvent:PageEvent){
     this._pageNumber=pageEvent.pageIndex;
     this._pageSize=pageEvent.pageSize;
-    
+
     this._getClientsPaged();
   }
   ngOnInit() {
@@ -31,7 +33,10 @@ export class ClientComponent implements OnInit {
   }
   _getClientsPaged(){
     this._clientService.getClientsPaged(this._pageNumber,this._pageSize).subscribe(response => {
-      this._clients = response as Paged<Client>;
+      this._clients = response;
+    });
+    this._clientService.getClients().subscribe(response => {
+      this._clientesAutoComplete = response;
     });
   }
 }
