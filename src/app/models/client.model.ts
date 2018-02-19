@@ -6,6 +6,7 @@ export class Client {
     public constructor() {
         this.clientesContactos = [];
     }
+    
     id: number;
 
     nombreCompleto: string;

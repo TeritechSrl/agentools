@@ -10,6 +10,7 @@ import { FileUploaderService } from '../../services/fileuploader.service';
 import { AppCustomEvent } from '../../appcustomevents';
 import { Broadcaster } from '../../services/broadcaster.service';
 import { ToastMessage, ToastType } from '../../models/toastMessage.model';
+import { ClienteContacto } from '../../models/clientContact.model';
 
 @Component({
   selector: 'app-client-detail',
@@ -72,7 +73,12 @@ export class ClientDetailComponent extends ClientManager implements OnInit, Mode
     let id: number = +this.route.snapshot.paramMap.get('id');
     this._contactTypesService.getTypes().subscribe(response => this._contactTypes = response);
     if (id) {
-      this._clientService.getClient(id).subscribe(response => this._client = response);
+      this._clientService.getClient(id).subscribe(response => {
+        this._client = response as Client;
+        if (this._client.clientesContactos.length === 0) {
+          this._client.clientesContactos.push(new ClienteContacto());
+        }
+      });
     }
   }
 }

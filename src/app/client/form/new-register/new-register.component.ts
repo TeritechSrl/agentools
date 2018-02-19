@@ -9,6 +9,7 @@ import { ModelManager } from '../../generics/model.imanager';
 import { AppCustomEvent } from '../../../appcustomevents';
 import { Broadcaster } from '../../../services/broadcaster.service';
 import { ToastMessage, ToastType } from '../../../models/toastMessage.model';
+import { ClienteContacto } from '../../../models/clientContact.model';
 
 @Component({
   selector: 'app-new-register',
@@ -38,6 +39,8 @@ export class NewRegisterComponent extends ClientManager implements OnInit, Model
     private broadcaster: Broadcaster
   ) {
     super(_clientService,_contactTypesService);
+    this._client = new Client();
+    this._client.clientesContactos.push(new ClienteContacto());
   }
 
   ngOnInit() {
