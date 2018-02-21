@@ -32,13 +32,13 @@
 		<div class="row" *ngFor="let contacto of _client.clientesContactos">
 			<div class="col-md-8">
 				<mat-form-field class="full-width">
-					<input matInput placeholder="Teléfono" name="descripcion" #descripcion="ngModel" [(ngModel)]="contacto.valor" required>
+					<input matInput placeholder="Teléfono" name="descripcion" #descripcion="ngModel" [(ngModel)]="contacto.valor">
 					<mat-error *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">Un teléfono del cliente es requerido.</mat-error>
 				</mat-form-field>
 			</div>
 			<div class="col-md-4">
 				<mat-form-field class="full-width">
-					<mat-select required placeholder="Tipo" name="tipoContacto" #tipoContacto="ngModel" [(ngModel)]="contacto.idTipoContacto">
+					<mat-select [attr.required]="contacto.valor" placeholder="Tipo" name="tipoContacto" #tipoContacto="ngModel" [(ngModel)]="contacto.idTipoContacto">
 						<mat-option *ngFor="let type of _contactTypes" [value]="type.id">{{type.descripcion}}</mat-option>
 					</mat-select>
 					<mat-error *ngIf="tipoContacto.invalid && (tipoContacto.dirty || tipoContacto.touched)">Elija el tipo de teléfono.</mat-error>

@@ -1,9 +1,8 @@
 <div class="animated fadeIn">
 	<mat-card id="searchBox">
-		<form action="">
-			<input type="text" class="searchInput" placeholder="Buscar...">
+			<input type="text" class="searchInput" placeholder="Buscar..."
+			[(ngModel)]="_filterClients.nombreCompleto">
 			<button mat-icon-button color="primary"><i class="ion-android-search"></i></button>
-		</form>
 	</mat-card>
 
 	<div class="top-options">
@@ -35,11 +34,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let client of _clients">
+			<tr *ngFor="let client of _clients.items | filterBy: _filterClients">
 				<th><section><mat-checkbox></mat-checkbox></section></th>
 				<td>
 					<img *ngIf="!client.avatar" src="../assets/img/xample_pic.jpg" alt="" class="circle border">
-					<img *ngIf="client.avatar" src="{{client.avatar}}" alt="" class="circle border">
+					<img *ngIf="client.avatar" src="{{client.avatarUrl}}" alt="" class="circle border">
 				</td>
 				<td>{{client.id}}</td>
 				<td><a href="/" [routerLink]="['/client', client.id]">{{client.nombreCompleto}}</a></td>
@@ -50,8 +49,10 @@
 		</tbody>
 	</table>
 	<mat-paginator class="pull-right" 
-		[length]="25"
-		[pageSize]="10"
-		[pageSizeOptions]="[5, 10, 25]">
+		[length]="_clients.paging.totalItems"
+		[pageSize]="_pageSize"
+		[pageIndex]="_clients.paging.pageNumber"
+		[pageSizeOptions]="[5, 10, 25]"
+		(page)="paginationChanged($event)">
 	</mat-paginator>
 </div>

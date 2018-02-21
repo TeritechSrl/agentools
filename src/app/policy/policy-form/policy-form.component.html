@@ -3,36 +3,30 @@
   <span class="status active">Estatus: activa</span>
 </header>
 
-<form action="">
-  <mat-form-field class="full-width" >
-    <mat-select placeholder="Aseguradora:">
-      <mat-option value="">Universal</mat-option>
-      <mat-option value="">ARS Humano</mat-option>
+<form action="" #newPolicyForm="ngForm">
+  <mat-form-field class="full-width">
+    <mat-select required placeholder="Aseguradora" name="Aseguradora" #insurer="ngModel" [(ngModel)]="_policy.idAseguradora">
+      <mat-option *ngFor="let insurer of _insurers" [value]="insurer.id">{{insurer.nombre}}</mat-option>
     </mat-select>
+    <mat-error *ngIf="insurer.invalid && (insurer.dirty || insurer.touched)">Elija la Aseguradora.</mat-error>
   </mat-form-field>
-  <span class="add-new-field">[+] Agregar nueva</span>
-  
-  <mat-form-field class="full-width" >
-    <mat-select placeholder="Categoría:">
-      <mat-option value="">Vehículo</mat-option>
-      <mat-option value="">Salud</mat-option>
+  <mat-form-field class="full-width">
+    <mat-select required placeholder="Categoría" name="categoria" #categoria="ngModel"  (ngModelChange)="_policy.idRamo=null" [(ngModel)]="_policyCategory">
+      <mat-option *ngFor="let category of _policyCategories" [value]="category">{{category.nombre}}</mat-option>
     </mat-select>
+    <mat-error *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">Elija la categoría.</mat-error>
   </mat-form-field>
-  
-  <mat-form-field class="full-width" >
-    <mat-select placeholder="Tipo de póliza:">
-      <mat-option value="">Individual</mat-option>
-      <mat-option value="">Colectiva</mat-option>
+  <mat-form-field class="full-width">
+    <mat-select required placeholder="Ramo" name="ramo" #ramo="ngModel" [(ngModel)]="_policy.idRamo">
+      <mat-option *ngFor="let ramo of _policyCategory.polizaRamos" [value]="ramo.id">{{ramo.nombre}}</mat-option>
     </mat-select>
+    <mat-error *ngIf="ramo.invalid && (ramo.dirty || ramo.touched)">Elija el ramo de la póliza.</mat-error>
   </mat-form-field>
-  
-  <mat-form-field class="full-width" >
-    <mat-select placeholder="Categoría:">
-      <mat-option value="">Vehículo</mat-option>
-      <mat-option value="">Salud</mat-option>
-    </mat-select>
-  </mat-form-field>
-  
+  <mat-radio-group name="tipoPoliza" [(ngModel)]="_policy.idTipo" #tipoPoliza="ngModel" required>
+    <label *ngFor="let policyType of _policyTypes">
+      <mat-radio-button value="{policyType.id}" class="radioBtn">{{policyType.nombre}}</mat-radio-button>
+    </label>
+  </mat-radio-group>
   <div id="new-insured">
     <div class="row">
       <div class="col-md-7">

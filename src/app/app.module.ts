@@ -10,6 +10,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { MatIconModule } from '@angular/material/icon';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 import {
   MatButtonModule,
@@ -85,6 +86,7 @@ const appRoutes: Routes = [
     JsonpModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FilterPipeModule,
     ToastModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
