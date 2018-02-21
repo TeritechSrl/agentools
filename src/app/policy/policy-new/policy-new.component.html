@@ -4,7 +4,8 @@
   </div>
 
   <div id="policy-detail" class="middle-col separator-line">      
-      <app-policy-form></app-policy-form>
+      <app-policy-form [policy]="_policy" [insurers]="_insurers" [policyCategories]="_policyCategories"
+      [policyTypes]="_policyTypes"></app-policy-form>
   </div>
   
   <div id="register-pay" class="right-col">

@@ -18,16 +18,11 @@ import { ClienteContacto } from '../../models/clientContact.model';
   providers: [ClientService, ContactTypeService, FileUploaderService]
 })
 export class ClientDetailComponent extends ClientManager implements OnInit, ModelManager {
-
-  @ViewChild('profilePhotoInput') profilePhotoInput: ElementRef;
-
-  pickPhoto() {
-    this.profilePhotoInput.nativeElement.click();
-  }
+ 
   deleteHandler(event: Client) {
     let ctx = this;
     let router: Router = this.router;
-    this._clientService.deleteClient(event).subscribe(function (response) {
+    this._clientService.delete(event.id).subscribe(function (response) {
       ctx.broadcaster.broadcast(AppCustomEvent.toast,
         new ToastMessage("Cliente eliminado.", ToastType.Ok));
       ctx.router.navigateByUrl('clients');
@@ -51,6 +46,8 @@ export class ClientDetailComponent extends ClientManager implements OnInit, Mode
   }
   saveHandler(event: any) {
     let ctx = this;
+    console.log(event);
+    
     this.getSavedMethod(event).subscribe(function (response) {
       ctx.router.navigateByUrl('clients');
       ctx.broadcaster.broadcast(AppCustomEvent.toast, new ToastMessage("Cliente guardado correctamente.", ToastType.Ok));
@@ -73,11 +70,12 @@ export class ClientDetailComponent extends ClientManager implements OnInit, Mode
     let id: number = +this.route.snapshot.paramMap.get('id');
     this._contactTypesService.getTypes().subscribe(response => this._contactTypes = response);
     if (id) {
-      this._clientService.getClient(id).subscribe(response => {
+      this._clientService.get(id).subscribe(response => {
         this._client = response as Client;
         if (this._client.clientesContactos.length === 0) {
           this._client.clientesContactos.push(new ClienteContacto());
         }
+        this._loaded = true;
       });
     }
   }

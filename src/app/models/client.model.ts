@@ -25,16 +25,15 @@ export class Client {
 
     notas: string;
 
-    private _avatar: string;
+    avatar: string;
+
+    avatarPreview: string;
 
     clientesContactos: ClienteContacto[];
 
-    set avatar(avatar: string) {
-        this._avatar = avatar;
-    }
-    get avatar(): string {
-        if (this._avatar) {
-            return [environment.filescontainer, this.codigo, this._avatar].join('/');
+    get avatarUrl(): string {
+        if (this.avatar) {
+            return [environment.filescontainer, this.codigo, this.avatar].join('/');
         } else {
             return '';
         }

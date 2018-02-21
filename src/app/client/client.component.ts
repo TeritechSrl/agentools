@@ -32,10 +32,10 @@ export class ClientComponent implements OnInit {
    this._getClientsPaged();
   }
   _getClientsPaged(){
-    this._clientService.getClientsPaged(this._pageNumber,this._pageSize).subscribe(response => {
+    this._clientService.getListPaged(this._pageNumber,this._pageSize).subscribe(response => {
       this._clients = response;
     });
-    this._clientService.getClients().subscribe(response => {
+    this._clientService.getList().subscribe(response => {
       this._clientesAutoComplete = response;
     });
   }

@@ -26,6 +26,7 @@ export class FormComponent {
   @Output()
   clientDeleted: EventEmitter<Client> = new EventEmitter<Client>();
 
+  @Input('isSaving')
   isSaving: boolean;
 
   addContactRow(): void {
@@ -34,6 +35,7 @@ export class FormComponent {
     this._client.clientesContactos.push(newContact);
   }
   saveClient(): void {
+    console.log(this._client);
     this.clientSaved.emit(this._client);
     this.isSaving = true;
   }

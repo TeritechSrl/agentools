@@ -1,6 +1,6 @@
 <div id="client-info-page" class="wrap-col animated fadeIn">
     <div id="user-profile" class="left-col separator-line">
-        <img *ngIf="_client.nombreCompleto" src="{{_client.avatar || '../assets/img/xample_pic.jpg'}}" alt="" class="border full-width">
+        <img *ngIf="_loaded" src="{{_client.avatarUrl || '../assets/img/xample_pic.jpg'}}" alt="" class="border full-width">
         <button class="full-width" mat-raised-button color="accent" (click)="pickPhoto();"><i class="ion-android-upload"></i> Subir</button>
         <input [hidden]="true" #profilePhotoInput type="file" id="btnUpload" value="Upload" (change)="saveImage($event,_client.id)" class="upload" />  
     </div>
