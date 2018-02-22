@@ -4,11 +4,12 @@ import { Client } from '../models/client.model';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Paged } from '../models/paged.model';
 import { PageEvent } from '@angular/material';
+import { FileManagerService } from '../services/filemanager.service';
 
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
-  providers: [ClientService]
+  providers: [ClientService,FileManagerService]
 })
 export class ClientComponent implements OnInit {
 
@@ -18,10 +19,13 @@ export class ClientComponent implements OnInit {
   _filterClients:any={nombreCompleto:''};
   _clientesAutoComplete:Client[];
 
-  constructor(private _clientService: ClientService) {
+  constructor(private _clientService: ClientService,
+  private _fileManager: FileManagerService) {
     
   }
-
+  exportClient(){
+    this._fileManager.export("Clientes");
+  }
   paginationChanged(pageEvent:PageEvent){
     this._pageNumber=pageEvent.pageIndex;
     this._pageSize=pageEvent.pageSize;

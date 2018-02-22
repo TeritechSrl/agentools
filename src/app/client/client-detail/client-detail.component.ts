@@ -6,7 +6,7 @@ import { ContactType } from '../../models/contact_type.model';
 import { ContactTypeService } from '../../services/contact_types.service';
 import { ClientManager } from '../generics/client.manager';
 import { ModelManager } from '../generics/model.imanager';
-import { FileUploaderService } from '../../services/fileuploader.service';
+import { FileManagerService } from '../../services/filemanager.service';
 import { AppCustomEvent } from '../../appcustomevents';
 import { Broadcaster } from '../../services/broadcaster.service';
 import { ToastMessage, ToastType } from '../../models/toastMessage.model';
@@ -15,7 +15,7 @@ import { ClienteContacto } from '../../models/clientContact.model';
 @Component({
   selector: 'app-client-detail',
   templateUrl: './client-detail.component.html',
-  providers: [ClientService, ContactTypeService, FileUploaderService]
+  providers: [ClientService, ContactTypeService, FileManagerService]
 })
 export class ClientDetailComponent extends ClientManager implements OnInit, ModelManager {
  
@@ -60,7 +60,7 @@ export class ClientDetailComponent extends ClientManager implements OnInit, Mode
     private router: Router,
     _clientService: ClientService,
     _contactTypesService: ContactTypeService,
-    private _fileUploader: FileUploaderService,
+    private _fileUploader: FileManagerService,
     private broadcaster: Broadcaster
   ) {
     super(_clientService, _contactTypesService);

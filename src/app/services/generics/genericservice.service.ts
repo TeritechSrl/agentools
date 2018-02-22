@@ -6,6 +6,9 @@ import 'rxjs/add/operator/map';
 export abstract class GenericModelService<T> {
     abstract getModelInstance(): T;
     protected _controllerName: string;
+    get controllerName(){
+        return this._controllerName;
+    }
     constructor(
         protected http: HttpClient,
         controllerName: string) {
@@ -20,7 +23,7 @@ export abstract class GenericModelService<T> {
             .map(res => this.parseArray(res));
     }
     getListPaged(page: number, size: number): Observable<Paged<T>> {
-        return this.http.get<Paged<T>>('Paginator/GetClientes?PageNumber=' + (page + 1) + '&PageSize=' + size)
+        return this.http.get<Paged<T>>('Paginator/Get'+this._controllerName+'?PageNumber=' + (page + 1) + '&PageSize=' + size)
             .map(res => this.parsePaged(res));
     }
     edit(model: T, id: number): Observable<T> {
