@@ -65,9 +65,20 @@
 		</div>
 
 		<div class="form-btn-bottom">
-			<button mat-raised-button color="primary" (click)="saveClient()" [disabled]="clientForm.pristine || clientForm.invalid || isSaving">Guardar</button>
-			<button mat-raised-button color="red" (click)="deleteClient()" [disabled]="isSaving" *ngIf="_client.id">Eliminar</button>
-			<a mat-raised-button color="red" [routerLink]="['/clients']">Cancelar</a>
+			<button mat-raised-button color="primary" (click)="saveClient()" 
+			angulartics2On="click" 
+			[angularticsAction]="_client.id ? 'Crear' : 'Editar'" 
+			angularticsCategory="Manejar cliente"
+			[disabled]="clientForm.pristine || clientForm.invalid || isSaving">Guardar</button>
+			<button mat-raised-button color="red" (click)="deleteClient()" 
+			angulartics2On="click" 
+			angularticsAction="Eliminar" 
+			angularticsCategory="Manejar cliente"
+			[disabled]="isSaving" *ngIf="_client.id">Eliminar</button>
+			<a mat-raised-button color="red" [routerLink]="['/clients']"
+			angulartics2On="click" 
+			angularticsAction="Salir" 
+			angularticsCategory="Manejar cliente">Cancelar</a>
 		</div>
 	</form>
 </div>

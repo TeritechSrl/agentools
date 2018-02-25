@@ -47,18 +47,24 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpLogInterceptor } from './overriders/interceptorhttp.overrider';
 import { Broadcaster } from './services/broadcaster.service';
 import { AppDisableWhileLoading } from './directives/appDisableWhileLoading.directive';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
+import { AuthenticationModule } from './security/authentication.module';
+import { AuthenticationGuard } from './security/authentication.guard';
+import { LoginComponent } from './security/components/login/login.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'clients', component: ClientComponent },
-  { path: 'client/:id', component: ClientDetailComponent },
-  { path: 'newClient', component: NewRegisterComponent },
-  { path: 'policy', component: PolicyComponent },
-  { path: 'policy/:id', component: PolicyDetailComponent },
-  { path: 'newPolicy', component: PolicyNewComponent },
-  { path: 'reports', component: ReportsComponent },
-  { path: 'insurers', component: InsurersComponent }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full', canActivate: [AuthenticationGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard] },
+  { path: 'authentication', component: LoginComponent },
+  { path: 'clients', component: ClientComponent, canActivate: [AuthenticationGuard] },
+  { path: 'client/:id', component: ClientDetailComponent, canActivate: [AuthenticationGuard]  },
+  { path: 'newClient', component: NewRegisterComponent, canActivate: [AuthenticationGuard]  },
+  { path: 'policy', component: PolicyComponent, canActivate: [AuthenticationGuard]  },
+  { path: 'policy/:id', component: PolicyDetailComponent, canActivate: [AuthenticationGuard]  },
+  { path: 'newPolicy', component: PolicyNewComponent, canActivate: [AuthenticationGuard]  },
+  { path: 'reports', component: ReportsComponent, canActivate: [AuthenticationGuard]  },
+  { path: 'insurers', component: InsurersComponent, canActivate: [AuthenticationGuard]  }
 ];
 
 @NgModule({
@@ -84,9 +90,14 @@ const appRoutes: Routes = [
     HttpModule,
     HttpClientModule,
     JsonpModule,
+    AuthenticationModule,
     BrowserModule,
     BrowserAnimationsModule,
     FilterPipeModule,
+    Angulartics2Module.forRoot([Angulartics2GoogleTagManager], {
+      pageTracking: {
+        clearIds: true,
+      }}),
     ToastModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
