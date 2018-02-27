@@ -17,14 +17,16 @@ export class AuthenticationSandbox {
 
     public getUser(): Observable<any> {
         let user: any = this.authService.getTokenDecoded();
-        let shortName:string = '';
-        let namedata = user.name.split(' ');
-        
-        for(var i = 0; i < namedata.length;i++){
-            shortName+=namedata[i][0].toUpperCase();
-        }
+        if (user) {
+            let shortName: string = '';
+            let namedata = user.name.split(' ');
 
-        user.shortName = shortName;
+            for (var i = 0; i < namedata.length; i++) {
+                shortName += namedata[i][0].toUpperCase();
+            }
+
+            user.shortName = shortName;
+        }
         return user;
     }
 }

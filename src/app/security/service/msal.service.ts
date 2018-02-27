@@ -28,7 +28,7 @@ export class MSALService {
     }
     public login() {
         let tokenData = '';
-        this.app.loginRedirect(this.applicationConfig.b2cScopes).then(data => {tokenData = data; });
+        this.app.loginRedirect(this.applicationConfig.b2cScopes, this.applicationConfig.extraQueryParameter).then(data => {tokenData = data; });
     }
 
     public getUser() {

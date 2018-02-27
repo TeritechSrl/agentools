@@ -18,6 +18,17 @@ export class HttpLogInterceptor implements HttpInterceptor {
         Authorization: 'Bearer ' + this.authService.getToken()
       }
     });
-    return next.handle(request);
+    return next.handle(request).catch((error: any) => {
+      const err = error.json();
+
+      // Refresh JWT
+      if (err.status === 401 || err.status === 403) {
+        // Add your token refresh logic here.
+        console.log('Token expired')
+        this.authService.login();
+      }
+
+      return Observable.throw(err);
+    });
   }
 }
