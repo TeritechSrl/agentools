@@ -5,6 +5,7 @@ export class Client {
 
     public constructor() {
         this.clientesContactos = [];
+        this.activo = true;
     }
     
     id: number;
@@ -28,6 +29,8 @@ export class Client {
     avatar: string;
 
     avatarPreview: string;
+
+    activo:boolean;
 
     clientesContactos: ClienteContacto[];
 
