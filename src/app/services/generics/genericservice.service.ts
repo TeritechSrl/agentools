@@ -22,8 +22,8 @@ export abstract class GenericModelService<T> {
         return this.http.get<T[]>(this._controllerName)
             .map(res => this.parseArray(res));
     }
-    getListPaged(page: number, size: number): Observable<Paged<T>> {
-        return this.http.get<Paged<T>>('Paginator/Get'+this._controllerName+'?PageNumber=' + (page + 1) + '&PageSize=' + size)
+    getListPaged(page: number, size: number, filter:string): Observable<Paged<T>> {
+        return this.http.get<Paged<T>>(`Paginator/Get${this._controllerName}?PageNumber=${page + 1}&PageSize=${size}&filter=${filter}`)
             .map(res => this.parsePaged(res));
     }
     edit(model: T, id: number): Observable<T> {
