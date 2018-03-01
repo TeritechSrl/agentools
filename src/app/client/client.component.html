@@ -1,8 +1,8 @@
 <div class="animated fadeIn">
 	<mat-card id="searchBox">
 			<input type="text" class="searchInput" placeholder="Buscar..."
-			[(ngModel)]="_filterClients.nombreCompleto">
-			<button mat-icon-button color="primary"><i class="ion-android-search"></i></button>
+			[(ngModel)]="_filterClients">
+			<button mat-icon-button color="primary" (click)="searchClient()"><i class="ion-android-search"></i></button>
 	</mat-card>
 
 	<div class="top-options">
@@ -15,7 +15,8 @@
 			</a>
 			<button 
 				mat-icon-button
-				matTooltip="Exportar">
+				matTooltip="Exportar"
+				(click)="exportClient()">
 				<i class="ion-android-download"></i>
 			</button>
 		</div>
@@ -34,7 +35,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let client of _clients.items | filterBy: _filterClients">
+			<tr *ngFor="let client of _clients.items">
 				<th><section><mat-checkbox></mat-checkbox></section></th>
 				<td>
 					<img src="../assets/img/xample_pic.jpg" alt="" class="circle border {{client.activo ? 'active' : ''}}"

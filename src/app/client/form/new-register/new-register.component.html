@@ -1,7 +1,11 @@
 <div id="client-info-page" class="wrap-col animated fadeIn">
     <div id="user-profile" class="left-col separator-line">
         <img src="{{_client.avatarPreview || '../assets/img/xample_pic.jpg'}}" alt="" class="border full-width">
-        <button class="full-width" mat-raised-button color="accent" (click)="pickPhoto();"><i class="ion-android-upload"></i> Subir</button>
+        <button class="full-width" mat-raised-button color="accent"
+        angulartics2On="click" 
+        angularticsAction="Nueva" 
+        angularticsCategory="Cargar foto"
+        (click)="pickPhoto();"><i class="ion-android-upload"></i> Subir</button>
         <input [hidden]="true" #profilePhotoInput type="file" id="btnUpload" value="Upload" (change)="saveImage($event)" class="upload" />  
     </div>
     <div id="insured" class="middle-col">

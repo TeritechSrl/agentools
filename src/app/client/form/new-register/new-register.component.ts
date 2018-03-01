@@ -10,12 +10,12 @@ import { AppCustomEvent } from '../../../appcustomevents';
 import { Broadcaster } from '../../../services/broadcaster.service';
 import { ToastMessage, ToastType } from '../../../models/toastMessage.model';
 import { ClienteContacto } from '../../../models/clientContact.model';
-import { FileUploaderService } from '../../../services/fileuploader.service';
+import { FileManagerService } from '../../../services/filemanager.service';
 
 @Component({
   selector: 'app-new-register',
   templateUrl: './new-register.component.html',
-  providers: [ClientService,ContactTypeService,FileUploaderService]
+  providers: [ClientService,ContactTypeService,FileManagerService]
 })
 export class NewRegisterComponent extends ClientManager implements OnInit, ModelManager {
   deleteHandler(event: any) {
@@ -58,7 +58,7 @@ export class NewRegisterComponent extends ClientManager implements OnInit, Model
   constructor(private route: ActivatedRoute,
     private router: Router,
     _clientService: ClientService, _contactTypesService:ContactTypeService,
-    private _fileUploader:FileUploaderService,
+    private _fileUploader:FileManagerService,
     private broadcaster: Broadcaster
   ) {
     super(_clientService,_contactTypesService);
