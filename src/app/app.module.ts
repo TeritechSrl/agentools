@@ -54,7 +54,7 @@ import { AuthenticationGuard } from './security/authentication.guard';
 import { LoginComponent } from './security/components/login/login.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full', canActivate: [AuthenticationGuard] },
+  { path: '', redirectTo: 'clients', pathMatch: 'full', canActivate: [AuthenticationGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard] },
   { path: 'authentication', component: LoginComponent },
   { path: 'clients', component: ClientComponent, canActivate: [AuthenticationGuard] },
