@@ -77,6 +77,8 @@ img.full-width { height: auto; }
 
 .separator-line { border-right: 1px solid #e5e5e5; }
 
+.mat-tooltip { font-size: 12px !important; }
+
 //COLUMNS
 .wrap-col { display: table; width: 100%; }
 
@@ -366,7 +368,16 @@ form .mat-radio-group { display: block; margin-bottom: 20px; }
 	}
 }
 
-#client_table td { padding: 4px 10px; }
+#client_table {
+	td { padding: 4px 10px; }
+
+	img { 
+		border-width: 2px;
+		padding: 1px;
+
+		&.active { border-color: #16a085; }
+	 }
+}
 
 /*===============================================================================================================================
 ========================================================= POLICY SECTION ========================================================

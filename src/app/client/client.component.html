@@ -37,8 +37,14 @@
 			<tr *ngFor="let client of _clients.items | filterBy: _filterClients">
 				<th><section><mat-checkbox></mat-checkbox></section></th>
 				<td>
-					<img *ngIf="!client.avatar" src="../assets/img/xample_pic.jpg" alt="" class="circle border">
-					<img *ngIf="client.avatar" src="{{client.avatarUrl}}" alt="" class="circle border">
+					<img src="../assets/img/xample_pic.jpg" alt="" class="circle border {{client.activo ? 'active' : ''}}"
+						*ngIf="!client.avatar" 
+						matTooltip="{{client.activo ? 'Activo' : 'Suspendido'}}"
+						matTooltipPosition="right">
+					<img src="{{client.avatarUrl}}" alt="" class="circle border"
+						*ngIf="client.avatar"
+						matTooltip="{{client.activo ? 'Activo' : 'Inactivo'}}"
+						matTooltipPosition="right">
 				</td>
 				<td>{{client.id}}</td>
 				<td><a href="/" [routerLink]="['/client', client.id]">{{client.nombreCompleto}}</a></td>
