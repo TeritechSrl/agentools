@@ -18,9 +18,7 @@ export class HttpLogInterceptor implements HttpInterceptor {
         Authorization: 'Bearer ' + this.authService.getToken()
       }
     });
-    return next.handle(request).catch((error: any) => {
-      const err = error.json();
-
+    return next.handle(request).catch((err: any) => {
       // Refresh JWT
       if (err.status === 401 || err.status === 403) {
         // Add your token refresh logic here.

@@ -9,13 +9,13 @@ export class AuthService {
 
     public getToken(): string {
         const token: string = window.sessionStorage.getItem('msal.idtoken');
-        // if (token == null || token === undefined || token=='null' || !tokenNotExpired('msal.idtoken',token)) {
-        //     this.msalService.login();
-        // }
-        // else {
-        //     return token;
-        // }
-        return token;
+        if (token == null || token === undefined || token=='null' || !tokenNotExpired('msal.idtoken',token)) {
+            this.msalService.login();
+        }
+        else {
+            return token;
+        }
+        // return token;
     }
 
     public login() {
