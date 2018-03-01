@@ -72,7 +72,7 @@
 			angulartics2On="click" 
 			[angularticsAction]="_client.id ? 'Crear' : 'Editar'" 
 			angularticsCategory="Manejar cliente"
-			[disabled]="clientForm.pristine || clientForm.invalid || isSaving || !_client.activo">Guardar</button>
+			[disabled]="clientForm.pristine || clientForm.invalid || isSaving">Guardar</button>
 			<button mat-raised-button color="red" (click)="deleteClient()" 
 			angulartics2On="click" 
 			angularticsAction="Eliminar" 

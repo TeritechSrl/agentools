@@ -15,9 +15,9 @@ export class FormComponent {
   constructor(public dialog: MatDialog) {
 
   }
-  
+
   clientForm: FormGroup;
-  
+
   @Input('client')
   _client: Client;
 
@@ -34,9 +34,11 @@ export class FormComponent {
   isSaving: boolean;
 
   addContactRow(): void {
-    let newContact: ClienteContacto = new ClienteContacto;
-    newContact.idTipoContacto = 1;
-    this._client.clientesContactos.push(newContact);
+    if (this._client.activo) {
+      let newContact: ClienteContacto = new ClienteContacto;
+      newContact.idTipoContacto = 1;
+      this._client.clientesContactos.push(newContact);
+    }
   }
   saveClient(): void {
     console.log(this._client);
