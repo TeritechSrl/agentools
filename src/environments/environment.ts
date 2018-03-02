@@ -1,10 +1,10 @@
 export const environment = {
-  production: false,
-  origin: 'http://localhost:50776/api/',
-  filescontainer:'https://teritechsrl.azureedge.net/agentools',
-  redirectUrl:'http://localhost:4200',
-  b2cClientId: '97bb76c2-4287-4377-b473-5bb5aa017a4c',
-  b2cauthority: 'https://login.microsoftonline.com/tfp/teritechsrl.onmicrosoft.com/B2C_1_MainPolicy',
+  production: true,
+  origin: 'https://apiagentools.azurewebsites.net/api/',
+  filescontainer: 'https://teritechsrl.blob.core.windows.net/agentools',
+  redirectUrl: 'https://agentools.azurewebsites.net',
+  b2cClientId: '66c60617-8f91-475c-8613-cfbc1bf90c00',
+  b2cauthority: 'https://login.microsoftonline.com/tfp/teritechsrl.onmicrosoft.com/B2C_1_MainPolicy_PROD',
   b2cScopes: ['https://teritechsrl.onmicrosoft.com/user.read'],
   b2cextraQueryParameter: 'ui_locales=es-es'  
 };
