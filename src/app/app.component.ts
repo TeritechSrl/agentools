@@ -5,6 +5,7 @@ import { ToastsManager } from 'ng2-toastr';
 import { ToastMessage, ToastType } from './models/toastMessage.model';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import { AuthenticationSandbox } from './security/sandbox/authentication.sandbox';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit{
   constructor(private broadcaster: Broadcaster,
     private authSandbox: AuthenticationSandbox,
     public toastr: ToastsManager, vcr: ViewContainerRef,
-    angulartics2GoogleAnalytics: Angulartics2GoogleTagManager) {
+    angulartics2GoogleAnalytics: Angulartics2GoogleTagManager,
+    public loader: LoadingBarService) {
     this.toastr.setRootViewContainerRef(vcr);
     this.broadcaster.on<ToastMessage>(AppCustomEvent.toast)
       .subscribe(message => {
