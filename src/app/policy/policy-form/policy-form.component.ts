@@ -12,11 +12,11 @@ import { PolicyField } from '../../models/policyfield.model';
 })
 export class PolicyFormComponent implements OnInit {
 
-  constructor() { 
+  constructor() {
     this._policyFields = [];
     this._policyCategory = new PolicyCategory();
   }
-  
+
   @Input('insurers')
   _insurers: Insurer[];
   @Input('policyTypes')
@@ -27,10 +27,19 @@ export class PolicyFormComponent implements OnInit {
   _policy: Policy;
 
   _policyCategory: PolicyCategory;
-  _policyFields:PolicyField[];
+  _policyFields: PolicyField[];
 
   ngOnInit() {
     console.log(this._policy);
   }
-
+  updatePolicyFields(policycategory) {
+    this._policy.idRamo = null;
+    this._policyFields = [];
+    for (let index = 0; index < policycategory.polizaRamos.length; index++) {
+      const ramo = policycategory.polizaRamos[index] as PolicyField;
+      if(this._policy.idTipo >= ramo.idTipoPoliza){
+        this._policyFields.push(ramo);
+      }
+    }
+  }
 }
