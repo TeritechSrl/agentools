@@ -11,6 +11,9 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { MatIconModule } from '@angular/material/icon';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 import {
   MatButtonModule,
@@ -25,7 +28,8 @@ import {
   MatDialogModule,
   MatTooltipModule,
   MatSlideToggleModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatProgressBarModule
 } from '@angular/material';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -89,6 +93,9 @@ const appRoutes: Routes = [
   imports: [
     HttpModule,
     HttpClientModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
+    LoadingBarModule,
     JsonpModule,
     AuthenticationModule,
     BrowserModule,
@@ -118,7 +125,8 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatTooltipModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: HttpLogInterceptor, multi: true },
     Broadcaster],

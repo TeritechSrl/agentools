@@ -4,6 +4,12 @@
 </header>
 
 <form action="" #newPolicyForm="ngForm">
+  <mat-radio-group name="tipoPoliza" [(ngModel)]="_policy.idTipo" #tipoPoliza="ngModel"
+  (ngModelChange)="updatePolicyFields(_policyCategory)" required>
+    <label *ngFor="let policyType of _policyTypes">
+      <mat-radio-button [value]="policyType.id" class="radioBtn">{{policyType.nombre}}</mat-radio-button>
+    </label>
+  </mat-radio-group>
   <mat-form-field class="full-width">
     <mat-select required placeholder="Aseguradora" name="Aseguradora" #insurer="ngModel" [(ngModel)]="_policy.idAseguradora">
       <mat-option *ngFor="let insurer of _insurers" [value]="insurer.id">{{insurer.nombre}}</mat-option>
@@ -11,22 +17,18 @@
     <mat-error *ngIf="insurer.invalid && (insurer.dirty || insurer.touched)">Elija la Aseguradora.</mat-error>
   </mat-form-field>
   <mat-form-field class="full-width">
-    <mat-select required placeholder="Categoría" name="categoria" #categoria="ngModel"  (ngModelChange)="_policy.idRamo=null" [(ngModel)]="_policyCategory">
+    <mat-select required placeholder="Categoría" name="categoria" #categoria="ngModel" (ngModelChange)="updatePolicyFields($event)"
+      [(ngModel)]="_policyCategory">
       <mat-option *ngFor="let category of _policyCategories" [value]="category">{{category.nombre}}</mat-option>
     </mat-select>
     <mat-error *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">Elija la categoría.</mat-error>
   </mat-form-field>
   <mat-form-field class="full-width">
     <mat-select required placeholder="Ramo" name="ramo" #ramo="ngModel" [(ngModel)]="_policy.idRamo">
-      <mat-option *ngFor="let ramo of _policyCategory.polizaRamos" [value]="ramo.id">{{ramo.nombre}}</mat-option>
+      <mat-option *ngFor="let ramo of _policyFields" [value]="ramo.id">{{ramo.nombre}}</mat-option>
     </mat-select>
     <mat-error *ngIf="ramo.invalid && (ramo.dirty || ramo.touched)">Elija el ramo de la póliza.</mat-error>
   </mat-form-field>
-  <mat-radio-group name="tipoPoliza" [(ngModel)]="_policy.idTipo" #tipoPoliza="ngModel" required>
-    <label *ngFor="let policyType of _policyTypes">
-      <mat-radio-button value="{policyType.id}" class="radioBtn">{{policyType.nombre}}</mat-radio-button>
-    </label>
-  </mat-radio-group>
   <div id="new-insured">
     <div class="row">
       <div class="col-md-7">
@@ -40,7 +42,7 @@
         </mat-form-field>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-md-7">
         <mat-form-field class="full-width">
@@ -71,23 +73,23 @@
   <div id="pay-method">
     <span class="mat-radio-static-label">Forma de pago:</span>
     <mat-radio-group name="genero">
-        <label>
-          <mat-radio-button value="total" class="radioBtn">Total</mat-radio-button>
-        </label>
-        <label>
-          <mat-radio-button value="cuota" class="radioBtn">Cuotas</mat-radio-button>
-        </label>
+      <label>
+        <mat-radio-button value="total" class="radioBtn">Total</mat-radio-button>
+      </label>
+      <label>
+        <mat-radio-button value="cuota" class="radioBtn">Cuotas</mat-radio-button>
+      </label>
     </mat-radio-group>
-    <mat-form-field >
-        <mat-select value="">
-          <mat-option value="">3</mat-option>
-          <mat-option value="">4</mat-option>
-        </mat-select>
+    <mat-form-field>
+      <mat-select value="">
+        <mat-option value="">3</mat-option>
+        <mat-option value="">4</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
 
   <div id="frecuency-payment">
-    <mat-form-field class="full-width" >
+    <mat-form-field class="full-width">
       <mat-select placeholder="Frecuencia de pago:">
         <mat-option value="">Semanal</mat-option>
         <mat-option value="">Quincenal</mat-option>
@@ -99,14 +101,14 @@
   </div>
 
   <mat-form-field class="full-width">
-    <input matInput placeholder="Vigencia:" >
+    <input matInput placeholder="Vigencia:">
   </mat-form-field>
 
   <span class="mat-radio-static-label">Estatus:</span>
   <mat-slide-toggle class="example-margin" placeholder="Estatus">Activa</mat-slide-toggle>
 
   <div class="form-btn-bottom">
-			<button mat-raised-button color="primary">Guardar</button>
-			<a mat-raised-button color="red" [routerLink]="['/policy']">Cancelar</a>
-		</div>
+    <button mat-raised-button color="primary">Guardar</button>
+    <a mat-raised-button color="red" [routerLink]="['/policy']">Cancelar</a>
+  </div>
 </form>
