@@ -50,7 +50,10 @@
 				<td>{{client.id}}</td>
 				<td><a href="/" [routerLink]="['/client', client.id]">{{client.nombreCompleto}}</a></td>
 				<td><i class="ion-android-mail"></i> {{client.correo}}</td>
-				<td><i class="ion-android-call"></i> </td>
+				<td>
+					<span *ngIf="client.clientesContactos.length === 0">Change me</span>
+					<span *ngFor="let contacto of client.clientesContactos"><i class="ion-android-call"></i> {{contacto.valor}}</span>
+				</td>
 				<td>{{client.notas}}</td>
 			</tr>
 		</tbody>
