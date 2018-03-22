@@ -195,6 +195,14 @@ img.full-width { height: auto; }
 	&, svg { height: 60px !important; width: 60px !important; }
 
 }
+
+.mat-progress-bar.mat-accent .mat-progress-bar-buffer { background: $accent; }
+.mat-progress-bar.mat-accent .mat-progress-bar-background { fill: $accent; }
+.mat-progress-bar.mat-accent .mat-progress-bar-fill::after { background-color: #ff7f1d; }
+
+//TABS
+.mat-tab-body-wrapper { overflow: inherit !important; }
+.mat-tab-body-content { overflow: hidden; }
 /*===============================================================================================================================
 ============================================================= HEADER ============================================================
 ===============================================================================================================================*/
@@ -315,6 +323,9 @@ form .mat-form-field { margin-bottom: 8px; }
 //RADIO & CHECKBOX
 form .mat-radio-group { display: block; margin-bottom: 20px; }
 
+.mat-radio-group label .mat-radio-button { margin-right: 20px; }
+.mat-radio-group label:last-child .mat-radio-button { margin-right: 0; }
+
 .mat-radio-button.mat-accent .mat-radio-inner-circle, 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background, 
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background { background-color: $accent !important; }
@@ -400,7 +411,7 @@ form .mat-radio-group { display: block; margin-bottom: 20px; }
 }
 
 #insured-client {
-	width: 28%;
+	width: 26.3%;
 
 	#searchBox { 
 		margin: 20px 0 30px; 
@@ -430,15 +441,70 @@ form .mat-radio-group { display: block; margin-bottom: 20px; }
 	#new-client-form { margin-top: 30px; }
 } 
 
-#policy-detail #pay-method {
-	.mat-radio-static-label {margin-bottom: -10px;  }
+#policy-detail {
+	padding: 0; 
 
-	.mat-radio-group { display: inline-block; }
+	.head-title { 
+		padding: 0 20px; 
 
-	.mat-form-field { 
-		margin-left: 20px;
-		text-align: center; 
-		width: 80px;
+		.status { right: 20px; }
+	}
+
+	.mat-tab-header { padding: 0 20px; }
+
+	.mat-tab-label { height: 40px; }
+
+	.mat-tab-label-active { 
+		background-color: #e7ebf3; 
+		font-weight: bold; 
+		opacity: 1;
+	}
+
+	form { padding: 20px; }
+	
+	#pay-method {
+		.mat-radio-static-label {margin-bottom: -10px;  }
+
+		.mat-radio-group { display: inline-block; }
+
+		.mat-form-field { 
+			margin-left: 10px;
+			text-align: center; 
+			width: 80px;
+		}
+	}
+
+	#new-insured {
+		& > .register {
+			border-top: 3px solid #e5e5e5;
+			margin-top: 10px;
+			padding-top: 20px;
+
+			&:first-child { 
+				border-top: 0; 
+				margin-top: 0;
+				padding-top: 0;
+			}
+		}
+
+		.add-new-field { margin: 20px 0 0 0; }
+		.beneficiarios .add-new-field { text-align: right; }
+
+		fieldset {
+			border-color: #dadada;
+			border-radius: 3px;
+			margin-top: 5px;
+			padding: 20px 20px 0;
+
+			legend { color: #63718c; font-weight: bold; }
+		}
+
+		#btn-new-insured {
+			color: #3f50b5;
+			font-size: 12px;
+			font-weight: bold;
+			margin: 15px 0 20px;
+		}
 	}
 }
 

@@ -29,7 +29,9 @@ import {
   MatTooltipModule,
   MatSlideToggleModule,
   MatProgressSpinnerModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatTabsModule,
+  MatDatepickerModule
 } from '@angular/material';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -126,7 +128,9 @@ const appRoutes: Routes = [
     MatTooltipModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTabsModule,
+    MatDatepickerModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: HttpLogInterceptor, multi: true },
     Broadcaster],

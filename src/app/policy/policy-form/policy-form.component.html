@@ -1,114 +1,267 @@
 <header class="head-title">
-  <h3>Datos de la póliza</h3>
-  <span class="status active">Estatus: activa</span>
+    <h3>Datos de la póliza</h3>
+    <span class="status active">Estatus: activa</span>
 </header>
 
-<form action="" #newPolicyForm="ngForm">
-  <mat-radio-group name="tipoPoliza" [(ngModel)]="_policy.idTipo" #tipoPoliza="ngModel"
-  (ngModelChange)="updatePolicyFields(_policyCategory)" required>
-    <label *ngFor="let policyType of _policyTypes">
-      <mat-radio-button [value]="policyType.id" class="radioBtn">{{policyType.nombre}}</mat-radio-button>
-    </label>
-  </mat-radio-group>
-  <mat-form-field class="full-width">
-    <mat-select required placeholder="Aseguradora" name="Aseguradora" #insurer="ngModel" [(ngModel)]="_policy.idAseguradora">
-      <mat-option *ngFor="let insurer of _insurers" [value]="insurer.id">{{insurer.nombre}}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="insurer.invalid && (insurer.dirty || insurer.touched)">Elija la Aseguradora.</mat-error>
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <mat-select required placeholder="Categoría" name="categoria" #categoria="ngModel" (ngModelChange)="updatePolicyFields($event)"
-      [(ngModel)]="_policyCategory">
-      <mat-option *ngFor="let category of _policyCategories" [value]="category">{{category.nombre}}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">Elija la categoría.</mat-error>
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <mat-select required placeholder="Ramo" name="ramo" #ramo="ngModel" [(ngModel)]="_policy.idRamo">
-      <mat-option *ngFor="let ramo of _policyFields" [value]="ramo.id">{{ramo.nombre}}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="ramo.invalid && (ramo.dirty || ramo.touched)">Elija el ramo de la póliza.</mat-error>
-  </mat-form-field>
-  <div id="new-insured">
-    <div class="row">
-      <div class="col-md-7">
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Asegurado 1:">
-        </mat-form-field>
-      </div>
-      <div class="col-md-5">
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Cédula:">
-        </mat-form-field>
-      </div>
-    </div>
+<mat-tab-group>
+    <mat-tab label="Detalle">
+        <form action="" #newPolicyForm="ngForm">
+            <mat-radio-group name="tipoPoliza" [(ngModel)]="_policy.idTipo" #tipoPoliza="ngModel"
+            (ngModelChange)="updatePolicyFields(_policyCategory)" required>
+                <label *ngFor="let policyType of _policyTypes">
+                    <mat-radio-button [value]="policyType.id" class="radioBtn">{{policyType.nombre}}</mat-radio-button>
+                </label>
+            </mat-radio-group>
 
-    <div class="row">
-      <div class="col-md-7">
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Asegurado 1:">
-        </mat-form-field>
-      </div>
-      <div class="col-md-5">
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Cédula:">
-        </mat-form-field>
-      </div>
-    </div>
-    <span class="add-new-field">[+] Agregar asegurado</span>
-  </div>
+            <mat-form-field class="full-width">
+                <mat-select required placeholder="Aseguradora" name="Aseguradora" #insurer="ngModel" [(ngModel)]="_policy.idAseguradora">
+                    <mat-option *ngFor="let insurer of _insurers" [value]="insurer.id">{{insurer.nombre}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="insurer.invalid && (insurer.dirty || insurer.touched)">Debe seleccionar una aseguradora.</mat-error>
+            </mat-form-field>
 
-  <mat-form-field class="full-width">
-    <input matInput placeholder="Número:">
-  </mat-form-field>
+            <div class="row">
+                <mat-form-field class="col-md-6">
+                    <mat-select required placeholder="Categoría" name="categoria" #categoria="ngModel" (ngModelChange)="updatePolicyFields($event)"
+                    [(ngModel)]="_policyCategory">
+                        <mat-option *ngFor="let category of _policyCategories" [value]="category.id">{{category.nombre}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">Debe seleccionar unacategoría.</mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-6">
+                    <mat-select required placeholder="Ramo" name="ramo" #ramo="ngModel" [(ngModel)]="_policy.idRamo">
+                        <mat-option *ngFor="let ramo of _policyFields" [value]="ramo.id">{{ramo.nombre}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="ramo.invalid && (ramo.dirty || ramo.touched)">Debe seleccionar el ramo de la póliza.</mat-error>
+                </mat-form-field>
+            </div>
 
-  <mat-form-field class="full-width">
-    <input matInput placeholder="Prima:">
-  </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Tipo de Plan:">
+            </mat-form-field>
 
-  <mat-form-field class="full-width">
-    <input matInput type="number" placeholder="Saldo:" value="4000" disabled>
-  </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Número:">
+            </mat-form-field>
 
-  <div id="pay-method">
-    <span class="mat-radio-static-label">Forma de pago:</span>
-    <mat-radio-group name="genero">
-      <label>
-        <mat-radio-button value="total" class="radioBtn">Total</mat-radio-button>
-      </label>
-      <label>
-        <mat-radio-button value="cuota" class="radioBtn">Cuotas</mat-radio-button>
-      </label>
-    </mat-radio-group>
-    <mat-form-field>
-      <mat-select value="">
-        <mat-option value="">3</mat-option>
-        <mat-option value="">4</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+           <div class="row">
+                <mat-form-field class="col-md-6">
+                    <input matInput placeholder="Prima:">
+                </mat-form-field>    
+                <mat-form-field class="col-md-6">
+                    <input matInput type="number" placeholder="Saldo:" value="4000" disabled>
+                </mat-form-field>
+           </div>
 
-  <div id="frecuency-payment">
-    <mat-form-field class="full-width">
-      <mat-select placeholder="Frecuencia de pago:">
-        <mat-option value="">Semanal</mat-option>
-        <mat-option value="">Quincenal</mat-option>
-        <mat-option value="">Mensual</mat-option>
-        <mat-option value="">6 meses</mat-option>
-        <mat-option value="">Anual</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+            <div id="frecuency-payment">
+                <mat-form-field class="full-width">
+                    <mat-select placeholder="Frecuencia de pago:">
+                        <mat-option value="">Semanal</mat-option>
+                        <mat-option value="">Quincenal</mat-option>
+                        <mat-option value="">Mensual</mat-option>
+                        <mat-option value="">6 meses</mat-option>
+                        <mat-option value="">Anual</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
 
-  <mat-form-field class="full-width">
-    <input matInput placeholder="Vigencia:">
-  </mat-form-field>
+            <div id="pay-method">
+                <span class="mat-radio-static-label">Forma de pago:</span>
+                <mat-radio-group name="forma_pago">
+                    <label>
+                        <mat-radio-button value="total" class="radioBtn" checked>Total</mat-radio-button>
+                    </label>
+                    <label>
+                        <mat-radio-button value="cuota" class="radioBtn">Cuotas</mat-radio-button>
+                    </label>
+                </mat-radio-group>
+                <mat-form-field>
+                    <mat-select value="">
+                        <mat-option value="">3</mat-option>
+                        <mat-option value="">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
 
-  <span class="mat-radio-static-label">Estatus:</span>
-  <mat-slide-toggle class="example-margin" placeholder="Estatus">Activa</mat-slide-toggle>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Vigencia:">
+            </mat-form-field>
 
-  <div class="form-btn-bottom">
-    <button mat-raised-button color="primary">Guardar</button>
-    <a mat-raised-button color="red" [routerLink]="['/policy']">Cancelar</a>
-  </div>
-</form>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Período Contratado:">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                    <input matInput placeholder="Períodos de Cobertura:">
+                </mat-form-field>
+
+            <span class="mat-radio-static-label">Estatus:</span>
+            <mat-slide-toggle class="example-margin" placeholder="Estatus" checked>Activa</mat-slide-toggle>
+
+            <div class="form-btn-bottom">
+                <button mat-raised-button color="primary">Guardar</button>
+                <a mat-raised-button color="red" [routerLink]="['/policy']">Cancelar</a>
+            </div>
+        </form>
+    </mat-tab>
+
+    <mat-tab label="Asegurados y Beneficiarios">
+        <form action="">
+            <mat-slide-toggle class="example-margin" placeholder="Estatus" #pColectiva>Póliza Colectiva</mat-slide-toggle>
+            <div id="new-insured" *ngIf="pColectiva.checked">
+                <div class="register">
+                    <h3>Asegurado 1</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field class="full-width">
+                            <input matInput placeholder="Nombre Asegurado:">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                            <input matInput placeholder="Cédula:">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Fecha de Nacimiento:">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Parentesco:">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                            <input matInput placeholder="Tipo de Plan:">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <mat-slide-toggle class="example-margin" placeholder="Estatus" #switchBeneficiario>Asociar Beneficiarios</mat-slide-toggle>
+                    <div class="beneficiarios" *ngIf="switchBeneficiario.checked">                        
+                        <fieldset class="register">
+                            <legend>Beneficiario 1</legend>
+                            <div class="row">                           
+                                <div class="col-md-12">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Nombre:">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <input type="number" matInput placeholder="Cédula:">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Parentesco:">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Suma Contratada:">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Porcentaje de Beneficio:">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <span class="add-new-field">[+] Agregar beneficiario</span>
+                    </div>
+                </div>
+
+                <div class="register">
+                    <h3>Asegurado 2</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field class="full-width">
+                            <input matInput placeholder="Nombre Asegurado:">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                            <input matInput placeholder="Cédula:">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Fecha de Nacimiento:">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Parentesco:">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                            <input matInput placeholder="Tipo de Plan:">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <mat-slide-toggle class="example-margin" placeholder="Estatus" #switchBeneficiario2>Asociar Beneficiarios</mat-slide-toggle>
+                    <div class="beneficiarios" *ngIf="switchBeneficiario2.checked">                        
+                        <fieldset class="register">
+                            <legend>Beneficiario 1</legend>
+                            <div class="row">                           
+                                <div class="col-md-12">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Nombre:">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <input type="number" matInput placeholder="Cédula:">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Parentesco:">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Suma Contratada:">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Porcentaje de Beneficio:">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <span class="add-new-field">[+] Agregar beneficiario</span>
+                    </div>
+                </div>
+
+                <button mat-raised-button id="btn-new-insured">Agregar nuevo asegurado</button>
+            </div>            
+
+            <div class="form-btn-bottom" *ngIf="pColectiva.checked">
+                <button mat-raised-button color="primary">Guardar</button>
+                <a mat-raised-button color="red" [routerLink]="['/policy']">Cancelar</a>
+            </div>
+        </form>
+    </mat-tab>
+</mat-tab-group>
