@@ -51,9 +51,9 @@ export class ClientDetailComponent extends ClientManager implements OnInit, Mode
     this.getSavedMethod(event).subscribe(function (response) {
       ctx.router.navigateByUrl('clients');
       ctx.broadcaster.broadcast(AppCustomEvent.toast, new ToastMessage("Cliente guardado correctamente.", ToastType.Ok));
-    }, function () {
+    }, function (error) {
       ctx.broadcaster.broadcast(AppCustomEvent.toast,
-        new ToastMessage("No pudimos guardar el cliente.", ToastType.Error));
+        new ToastMessage("No pudimos guardar el cliente. "+ error.error, ToastType.Error));
     });
   }
   constructor(private route: ActivatedRoute,

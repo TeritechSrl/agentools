@@ -27,7 +27,7 @@
 
 		<mat-form-field class="full-width">
 			<input matInput placeholder="Cédula" name="identificacion" [(ngModel)]="_client.identificacion" #identificacion="ngModel"
-			[disabled]="!_client.activo">
+			[disabled]="!_client.activo" required>
 		</mat-form-field>
 
 		<div class="row" *ngFor="let contacto of _client.clientesContactos">
