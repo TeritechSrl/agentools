@@ -24,11 +24,13 @@ export class AuthService {
             this.msalService.login();
         }
     }
-
+    public logout():void{
+        this.msalService.logout();
+    }
     public getTokenDecoded(): any
     {
       return this.jwtHelper.decodeToken(this.getToken());
-    }
+    }   
 
     public collectFailedRequest(request): void {
         this.cachedRequests.push(request);

@@ -14,7 +14,9 @@ export class AuthenticationSandbox {
     public login(): void {
         this.authService.login();
     }
-
+    public logout():void{
+        this.authService.logout();
+    }
     public getUser(): Observable<any> {
         let user: any = this.authService.getTokenDecoded();
         if (user) {
